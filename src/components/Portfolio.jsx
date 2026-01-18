@@ -8,8 +8,8 @@ import swappy3 from '../assets/images/swappy3.png';
 import swappy4 from '../assets/images/swappy4.png';
 
 export default function Portfolio() {
- // const [activeSection, setActiveSection] = useState('home');
-  //const [isScrolled, setIsScrolled] = useState(false);
+ const [activeSection, setActiveSection] = useState('home');
+const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
