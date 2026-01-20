@@ -298,7 +298,7 @@ export default function Portfolio() {
                 <p>• TensorFlow</p>
                 <p>• PyTorch</p>
                 <p>• YOLOv8</p>
-                <p>• scikit-learn</p>
+                <p>• Scikit-learn</p>
                 <p>• Computer Vision</p>
               </div>
             </div>
@@ -396,7 +396,7 @@ export default function Portfolio() {
       {/* Footer */}
       <footer className="py-8 px-6 border-t border-slate-800">
         <div className="max-w-6xl mx-auto text-center text-slate-400">
-          <p>© 2025 Iker Muñoz Herrero. Desarrollado con React y pasión por la tecnología.</p>
+          <p>© 2025 Iker Muñoz Herrero. Desarrollado con React</p>
         </div>
       </footer>
     </div>
