@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, MapPin, ExternalLink, Code2, Database, Brain, Server, Globe, ChevronDown } from 'lucide-react';
 
-import fotoPerfil from '../assets/images/foto-perfil.png';
-import swappy1 from '../assets/images/swappy1.png';
-import swappy2 from '../assets/images/swappy2.png';
-import swappy3 from '../assets/images/swappy3.png';
+import fotoPerfil from '../assets/images/foto-perfil.png'; 
+import swappy1 from '../assets/images/swappy1.png'; 
+import swappy2 from '../assets/images/swappy2.png'; 
+import swappy3 from '../assets/images/swappy3.png'; 
 import swappy4 from '../assets/images/swappy4.png';
 
 export default function Portfolio() {
-//const [activeSection, setActiveSection] = useState('home');
-const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,28 +22,34 @@ const [isScrolled, setIsScrolled] = useState(false);
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: 'smooth' });
-    //setActiveSection(id);
+    setActiveSection(id);
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
       {/* Navigation */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-slate-900/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'}`}>
-        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+          <div className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">
             IM
           </div>
-          <div className="flex gap-8">
+          <div className="hidden md:flex gap-4 lg:gap-8">
             {['Inicio', 'Sobre mí', 'Proyectos', 'Skills', 'Contacto'].map((item, idx) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(['home', 'about', 'projects', 'skills', 'contact'][idx])}
-                className="hover:text-cyan-400 transition-colors duration-300 font-medium"
+                className="hover:text-cyan-400 transition-colors duration-300 font-medium text-sm lg:text-base"
               >
                 {item}
               </button>
             ))}
           </div>
+          <button 
+            className="md:hidden p-2 text-cyan-400"
+            onClick={() => scrollToSection('contact')}
+          >
+            <Mail size={24} />
+          </button>
         </div>
       </nav>
 
@@ -90,10 +96,10 @@ const [isScrolled, setIsScrolled] = useState(false);
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
               <img 
-                src={fotoPerfil}
+                src={fotoPerfil} 
                 alt="Iker Muñoz" 
                 className="relative w-80 h-80 object-cover rounded-full border-4 border-cyan-500/30 shadow-2xl shadow-cyan-500/20"
-                />
+              />
             </div>
           </div>
         </div>
@@ -103,32 +109,32 @@ const [isScrolled, setIsScrolled] = useState(false);
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold mb-12 text-center">
+      <section id="about" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-12 text-center">
             <span className="bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">
               Sobre mí
             </span>
           </h2>
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="space-y-6 text-slate-300 leading-relaxed">
-              <p className="text-lg">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+            <div className="space-y-4 sm:space-y-6 text-slate-300 leading-relaxed text-sm sm:text-base lg:text-lg">
+              <p>
                 Soy Desarrollador de Aplicaciones Web Full Stack con formación técnica en desarrollo backend y frontend, actualmente especializado en <span className="text-cyan-400 font-semibold">Inteligencia Artificial</span> y <span className="text-cyan-400 font-semibold">Big Data</span>, con experiencia práctica en entornos empresariales.
               </p>
-              <p className="text-lg">
+              <p>
                 He finalizado el <span className="font-semibold text-white">Grado Superior en Desarrollo de Aplicaciones Web</span> en el IES Azarquiel, donde adquirí una base sólida trabajando con tecnologías como Java, Spring Boot, JPA, MySQL, HTML, CSS, JavaScript y React.
               </p>
-              <p className="text-lg">
+              <p>
                 Durante mis prácticas en <span className="font-semibold text-white">HPE CDS (Hewlett Packard Enterprise)</span>, participé en proyectos reales implementando modelos de IA para detección de personas, fuego y vehículos, y desarrollando sistemas predictivos con Machine Learning.
               </p>
             </div>
-            <div className="space-y-6">
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300">
-                <h3 className="text-xl font-bold mb-4 text-cyan-400">Formación Actual</h3>
-                <div className="space-y-3 text-slate-300">
-                  <p><span className="font-semibold text-white">Especialización en IA y Big Data</span></p>
-                  <p className="text-sm">IES Ribera del Tajo</p>
-                  <ul className="list-disc list-inside space-y-2 text-sm ml-2">
+            <div className="space-y-4 sm:space-y-6">
+              <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300">
+                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-cyan-400">Formación Actual</h3>
+                <div className="space-y-2 sm:space-y-3 text-slate-300">
+                  <p className="text-sm sm:text-base"><span className="font-semibold text-white">Especialización en IA y Big Data</span></p>
+                  <p className="text-xs sm:text-sm">IES Ribera del Tajo</p>
+                  <ul className="list-disc list-inside space-y-1 sm:space-y-2 text-xs sm:text-sm ml-2">
                     <li>Machine Learning y Deep Learning</li>
                     <li>TensorFlow y PyTorch</li>
                     <li>Big Data con Hadoop y Cloudera</li>
@@ -136,12 +142,12 @@ const [isScrolled, setIsScrolled] = useState(false);
                   </ul>
                 </div>
               </div>
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300">
-                <h3 className="text-xl font-bold mb-4 text-cyan-400">Experiencia</h3>
-                <div className="space-y-3 text-slate-300">
-                  <p><span className="font-semibold text-white">Prácticas en HPE CDS</span></p>
-                  <p className="text-sm">Hewlett Packard Enterprise</p>
-                  <ul className="list-disc list-inside space-y-2 text-sm ml-2">
+              <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300">
+                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-cyan-400">Experiencia</h3>
+                <div className="space-y-2 sm:space-y-3 text-slate-300">
+                  <p className="text-sm sm:text-base"><span className="font-semibold text-white">Prácticas en HPE CDS</span></p>
+                  <p className="text-xs sm:text-sm">Hewlett Packard Enterprise</p>
+                  <ul className="list-disc list-inside space-y-1 sm:space-y-2 text-xs sm:text-sm ml-2">
                     <li>Desarrollo de modelos de IA para detección</li>
                     <li>Sistemas predictivos con ML</li>
                     <li>Despliegues en entornos productivos</li>
@@ -292,7 +298,7 @@ const [isScrolled, setIsScrolled] = useState(false);
                 <p>• TensorFlow</p>
                 <p>• PyTorch</p>
                 <p>• YOLOv8</p>
-                <p>• Scikit-learn</p>
+                <p>• scikit-learn</p>
                 <p>• Computer Vision</p>
               </div>
             </div>
@@ -390,7 +396,7 @@ const [isScrolled, setIsScrolled] = useState(false);
       {/* Footer */}
       <footer className="py-8 px-6 border-t border-slate-800">
         <div className="max-w-6xl mx-auto text-center text-slate-400">
-          <p>© 2025 Iker Muñoz Herrero. Desarrollado con React.</p>
+          <p>© 2025 Iker Muñoz Herrero. Desarrollado con React y pasión por la tecnología.</p>
         </div>
       </footer>
     </div>
