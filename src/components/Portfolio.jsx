@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, MapPin, ExternalLink, Code2, Database, Brain, Server, Globe, ChevronDown } from 'lucide-react';
-
+import { Github, Linkedin, Mail, MapPin, ExternalLink, Code2, Database, Brain, Server, Globe, ChevronDown, Eye, Settings  } from 'lucide-react';
+import { Analytics } from "@vercel/analytics/react"
 import fotoPerfil from '../assets/images/foto-perfil.png'; 
 import swappy1 from '../assets/images/swappy1.png'; 
 import swappy2 from '../assets/images/swappy2.png'; 
 import swappy3 from '../assets/images/swappy3.png'; 
 import swappy4 from '../assets/images/swappy4.png';
-
+import videoSrc from '../assets/videos/VideoDemostracion.mp4';
 export default function Portfolio() {
   //const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
@@ -242,10 +242,106 @@ export default function Portfolio() {
               </div>
             </div>
           </div>
+          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700/50 hover:border-purple-500/50 transition-all duration-300 shadow-2xl">
+            <div className="grid md:grid-cols-2 gap-0">
+              
+              <div className="p-8 space-y-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                    <Brain size={24} />
+                  </div>
+                  <h3 className="text-3xl font-bold">Custom Object Detection (YOLOv8)</h3>
+                </div>
+                
+                <p className="text-slate-300 leading-relaxed text-lg">
+                  Sistema avanzado de <span className="text-purple-400 font-semibold">visión por computador</span> basado en YOLOv8, enfocado en la detección personalizada de objetos (<span className="font-semibold text-white">keys</span>) mediante fine-tuning y arquitectura multi-modelo para preservar detección general COCO.
+                </p>
+
+                <div className="space-y-4">
+                  <h4 className="text-xl font-semibold text-purple-400">Características Principales</h4>
+                  <ul className="space-y-3 text-slate-300">
+                    
+                    <li className="flex items-start gap-3">
+                      <Brain className="text-purple-400 mt-1 flex-shrink-0" size={20} />
+                      <span>
+                        <span className="font-semibold text-white">Fine-tuning personalizado:</span> Entrenamiento específico de YOLOv8 para añadir una nueva clase (<span className="text-white">keys</span>) mediante anotación y adaptación de dataset.
+                      </span>
+                    </li>
+
+                    <li className="flex items-start gap-3">
+                      <Code2 className="text-purple-400 mt-1 flex-shrink-0" size={20} />
+                      <span>
+                        <span className="font-semibold text-white">Arquitectura multi-modelo:</span> Integración simultánea de dos modelos (YOLOv8 COCO + modelo fine-tuned) para evitar <span className="italic">catastrophic forgetting</span>.
+                      </span>
+                    </li>
+
+                    <li className="flex items-start gap-3">
+                      <Eye className="text-purple-400 mt-1 flex-shrink-0" size={20} />
+                      <span>
+                        <span className="font-semibold text-white">Detección en tiempo real:</span> Procesamiento de vídeo en vivo con OpenCV, combinando resultados de ambos modelos en una única visualización.
+                      </span>
+                    </li>
+
+                    <li className="flex items-start gap-3">
+                      <Settings className="text-purple-400 mt-1 flex-shrink-0" size={20} />
+                      <span>
+                        <span className="font-semibold text-white">Pipeline completo:</span> Preparación de dataset, corrección de etiquetas, configuración multiplataforma (Windows/Linux) y optimización de inferencia.
+                      </span>
+                    </li>
+
+                  </ul>
+                </div>
+
+                <div className="space-y-3">
+                  <h4 className="text-xl font-semibold text-purple-400">Stack Tecnológico</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {['Python', 'YOLOv8', 'PyTorch', 'OpenCV', 'Computer Vision', 'Deep Learning', 'Object Detection', 'Fine-tuning', 'Dataset Annotation'].map(tech => (
+                      <span key={tech} className="px-3 py-1 bg-slate-700/50 rounded-lg text-sm border border-slate-600/50 hover:border-purple-500/50 transition-colors">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  <h4 className="text-xl font-semibold text-purple-400">Resultados</h4>
+                  <ul className="space-y-2 text-slate-300">
+                    <li>✓ Detección precisa de objetos personalizados (<span className="font-semibold text-white">keys</span>)</li>
+                    <li>✓ Preservación de detección COCO mediante arquitectura multi-modelo</li>
+                    <li>✓ Sistema de detección en tiempo real funcional en CPU</li>
+                    <li>✓ Experiencia práctica en <span className="font-semibold text-white">Continual Learning</span> y limitaciones reales de fine-tuning</li>
+                  </ul>
+                </div>
+
+                <div className="flex gap-4 pt-4">
+                  <a href="https://github.com/IkerMunozz" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300">
+                    <Github size={20} />
+                    Ver Código
+                  </a>
+                  <a href="#" className="flex items-center gap-2 px-6 py-3 border-2 border-purple-500/30 rounded-lg font-semibold hover:border-purple-500 hover:bg-purple-500/10 transition-all duration-300">
+                    <ExternalLink size={20} />
+                    Demo en vídeo
+                  </a>
+                </div>
+              </div>
+
+              <div className="bg-slate-900 p-6 flex items-center justify-center">
+                <video
+                  src={videoSrc}   
+                  controls
+                  autoPlay
+                  loop
+                  muted
+                  className="rounded-lg border border-slate-700 hover:border-purple-500/50 transition-all duration-300 w-full"
+                />
+              </div>
+
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Skills Section */}
+
       <section id="skills" className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold mb-12 text-center">
