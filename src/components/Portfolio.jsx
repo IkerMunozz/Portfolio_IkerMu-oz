@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, MapPin, ExternalLink, Code2, Database, Brain, Server, Globe, ChevronDown, Eye, Settings  } from 'lucide-react';
-import { Analytics } from "@vercel/analytics/react"
 import fotoPerfil from '../assets/images/foto-perfil.png'; 
 import swappy1 from '../assets/images/swappy1.png'; 
 import swappy2 from '../assets/images/swappy2.png'; 
