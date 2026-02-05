@@ -232,9 +232,9 @@ export default function Portfolio() {
 
               <div className="bg-slate-900 p-6 flex flex-col gap-4">
                 <img src={swappy1} alt="Swappy - Inicio" className="rounded-lg border border-slate-700 hover:border-cyan-500/50 transition-all duration-300 w-full" />
-                <div className="grid grid-cols-2 gap-4">
-                  <img src={swappy2} alt="Swappy - Perfil" className="rounded-lg border border-slate-700 hover:border-cyan-500/50 transition-all duration-300" />
-                  <img src={swappy3} alt="Swappy - Publicar" className="rounded-lg border border-slate-700 hover:border-cyan-500/50 transition-all duration-300" />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <img src={swappy2} alt="Swappy - Perfil" className="w-full rounded-lg border border-slate-700 hover:border-cyan-500/50 transition-all duration-300" />
+                  <img src={swappy3} alt="Swappy - Publicar" className="w-full rounded-lg border border-slate-700 hover:border-cyan-500/50 transition-all duration-300" />
                 </div>
                 <img src={swappy4} alt="Swappy - Mapa" className="rounded-lg border border-slate-700 hover:border-cyan-500/50 transition-all duration-300 w-full" />
               </div>
