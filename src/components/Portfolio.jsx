@@ -166,7 +166,7 @@ export default function Portfolio() {
             </span>
           </h2>
           
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 shadow-2xl">
+          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 shadow-2xl mb-16">
             <div className="grid md:grid-cols-2 gap-0">
               <div className="p-8 space-y-6">
                 <div className="flex items-center gap-3">
