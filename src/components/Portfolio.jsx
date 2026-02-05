@@ -162,7 +162,7 @@ export default function Portfolio() {
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold mb-12 text-center">
             <span className="bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">
-              Proyecto Destacado
+              Proyectos Destacados
             </span>
           </h2>
           
