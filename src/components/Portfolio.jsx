@@ -316,10 +316,6 @@ export default function Portfolio() {
                     <Github size={20} />
                     Ver Código
                   </a>
-                  <a href="#" className="flex items-center gap-2 px-6 py-3 border-2 border-purple-500/30 rounded-lg font-semibold hover:border-purple-500 hover:bg-purple-500/10 transition-all duration-300">
-                    <ExternalLink size={20} />
-                    Demo en vídeo
-                  </a>
                 </div>
               </div>
 
