@@ -6,7 +6,6 @@ import swappy1 from '../assets/images/swappy1.png';
 import swappy2 from '../assets/images/swappy2.png'; 
 import swappy3 from '../assets/images/swappy3.png'; 
 import swappy4 from '../assets/images/swappy4.png';
-import videoSrc from '../assets/videos/VideoDemostracion.mp4';
 export default function Portfolio() {
   //const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
@@ -326,14 +325,15 @@ export default function Portfolio() {
               </div>
 
               <div className="bg-slate-900 p-6 flex items-center justify-center">
-                <video
-                  src={videoSrc}   
+               <video
+                  src="/videos/VideoDemostracion.mp4"
                   controls
                   autoPlay
                   loop
                   muted
-                  className="rounded-lg border border-slate-700 hover:border-purple-500/50 transition-all duration-300 w-full"
+                  className="w-full rounded-lg border border-slate-700"
                 />
+
               </div>
 
             </div>
