@@ -5,7 +5,6 @@ import swappy1 from '../assets/images/swappy1.png';
 import swappy2 from '../assets/images/swappy2.png'; 
 import swappy3 from '../assets/images/swappy3.png'; 
 import swappy4 from '../assets/images/swappy4.png';
-import dashboard from '../assets/images/dashboard_trafico.png'; 
 import deteccion from '../assets/images/deteccion_vehiculos.png';
 export default function Portfolio() {
   //const [activeSection, setActiveSection] = useState('home');
