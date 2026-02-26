@@ -5,6 +5,8 @@ import swappy1 from '../assets/images/swappy1.png';
 import swappy2 from '../assets/images/swappy2.png'; 
 import swappy3 from '../assets/images/swappy3.png'; 
 import swappy4 from '../assets/images/swappy4.png';
+import dashboard from '../assets/images/dashboard_trafico.png'; 
+import deteccion from '../assets/images/deteccion_vehiculos.png';
 export default function Portfolio() {
   //const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
@@ -155,7 +157,6 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Projects Section */}
       <section id="projects" className="py-20 px-6 bg-slate-900/50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold mb-12 text-center">
@@ -163,8 +164,8 @@ export default function Portfolio() {
               Proyectos Destacados
             </span>
           </h2>
-          
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 shadow-2xl mb-16">
+        <div className="space-y-16">
+            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 shadow-2xl mb-16">
             <div className="grid md:grid-cols-2 gap-0">
               <div className="p-8 space-y-6">
                 <div className="flex items-center gap-3">
@@ -287,7 +288,7 @@ export default function Portfolio() {
 
                   </ul>
                 </div>
-
+                
                 <div className="space-y-3">
                   <h4 className="text-xl font-semibold text-purple-400">Stack Tecnológico</h4>
                   <div className="flex flex-wrap gap-2">
@@ -302,10 +303,10 @@ export default function Portfolio() {
                 <div className="space-y-3">
                   <h4 className="text-xl font-semibold text-purple-400">Resultados</h4>
                   <ul className="space-y-2 text-slate-300">
-                    <li>✓ Detección precisa de objetos personalizados (<span className="font-semibold text-white">keys</span>)</li>
-                    <li>✓ Preservación de detección COCO mediante arquitectura multi-modelo</li>
-                    <li>✓ Sistema de detección en tiempo real funcional en CPU</li>
-                    <li>✓ Experiencia práctica en <span className="font-semibold text-white">Continual Learning</span> y limitaciones reales de fine-tuning</li>
+                    <li>Detección precisa de objetos personalizados (<span className="font-semibold text-white">keys</span>)</li>
+                    <li>Preservación de detección COCO mediante arquitectura multi-modelo</li>
+                    <li>Sistema de detección en tiempo real funcional en CPU</li>
+                    <li>Experiencia práctica en <span className="font-semibold text-white">Continual Learning</span> y limitaciones reales de fine-tuning</li>
                   </ul>
                 </div>
 
@@ -331,6 +332,141 @@ export default function Portfolio() {
 
             </div>
           </div>
+            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 shadow-2xl mb-16">
+              <div className="grid md:grid-cols-2 gap-0">
+                
+                <div className="p-8 space-y-6">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg flex items-center justify-center">
+                      <Database size={24} />
+                    </div>
+                    <h3 className="text-3xl font-bold">Traffic Flow Analysis & Prediction</h3>
+                  </div>
+                  
+                  <p className="text-slate-300 leading-relaxed text-lg">
+                    Sistema de análisis y predicción de tráfico urbano mediante técnicas de 
+                    <span className="text-cyan-400 font-semibold"> Machine Learning </span> 
+                    y análisis de datos, enfocado en la identificación de patrones temporales 
+                    y la predicción de congestión a partir de datos reales.
+                  </p>
+
+                  <div className="space-y-4">
+                    <h4 className="text-xl font-semibold text-cyan-400">Características Principales</h4>
+                    <ul className="space-y-3 text-slate-300">
+
+                      <li className="flex items-start gap-3">
+                        <Database className="text-cyan-400 mt-1 flex-shrink-0" size={20} />
+                        <span>
+                          <span className="font-semibold text-white">Análisis Exploratorio:</span> 
+                          Limpieza, transformación y visualización de datos para identificar 
+                          patrones de tráfico por franja horaria y día de la semana.
+                        </span>
+                      </li>
+
+                      <li className="flex items-start gap-3">
+                        <Brain className="text-cyan-400 mt-1 flex-shrink-0" size={20} />
+                        <span>
+                          <span className="font-semibold text-white">Modelado Predictivo:</span> 
+                          Entrenamiento y evaluación de modelos de Machine Learning 
+                          para estimar niveles de congestión futuros.
+                        </span>
+                      </li>
+
+                      <li className="flex items-start gap-3">
+                        <Globe className="text-cyan-400 mt-1 flex-shrink-0" size={20} />
+                        <span>
+                          <span className="font-semibold text-white">Visualización de Resultados:</span> 
+                          Representación gráfica de tendencias y comparación entre 
+                          valores reales y predichos.
+                        </span>
+                      </li>
+
+                      <li className="flex items-start gap-3">
+                        <Settings className="text-cyan-400 mt-1 flex-shrink-0" size={20} />
+                        <span>
+                          <span className="font-semibold text-white">Pipeline Completo:</span> 
+                          Preprocesamiento, división train/test, entrenamiento, 
+                          validación y análisis de métricas de rendimiento.
+                        </span>
+                      </li>
+
+                    </ul>
+                  </div>
+                  
+                  <div className="space-y-3">
+                    <h4 className="text-xl font-semibold text-cyan-400">Stack Tecnológico</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {[
+                        'Python',
+                        'Pandas',
+                        'NumPy',
+                        'Matplotlib',
+                        'Scikit-learn',
+                        'Machine Learning',
+                        'Data Analysis',
+                        'Regression',
+                        'Time Series'
+                      ].map(tech => (
+                        <span
+                          key={tech}
+                          className="px-3 py-1 bg-slate-700/50 rounded-lg text-sm border border-slate-600/50 hover:border-cyan-500/50 transition-colors"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="space-y-3">
+                    <h4 className="text-xl font-semibold text-cyan-400">Resultados</h4>
+                    <ul className="space-y-2 text-slate-300">
+                      <li>Identificación clara de patrones de congestión por franja horaria</li>
+                      <li>Modelo predictivo con buena capacidad de generalización</li>
+                      <li>Aplicación práctica de técnicas de regresión y análisis temporal</li>
+                      <li>Experiencia sólida en interpretación de métricas (MAE, RMSE, R²)</li>
+                    </ul>
+                  </div>
+
+                  <div className="flex gap-4 pt-4">
+                    <a
+                      href="https://github.com/IkerMunozz/Modelo_AnalisisTrafico"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300"
+                    >
+                      <Github size={20} />
+                      Ver Código
+                    </a>
+                  </div>
+                </div>
+
+                <div className="bg-slate-900 p-6 flex flex-col gap-6">
+
+                  <div className="w-full">
+                    <video
+                      src="/videos/Video_deteccion.mp4"
+                      controls
+                      autoPlay
+                      loop
+                      muted
+                      className="w-full rounded-lg border border-slate-700 hover:border-cyan-500/50 transition-all duration-300"
+                    />
+                  </div>
+
+                  <div className="w-full">
+                    <img
+                      src={deteccion}
+                      alt="Detección de objetos"
+                      className="w-full rounded-lg border border-slate-700 hover:border-cyan-500/50 transition-all duration-300"
+                    />
+                  </div>
+
+                </div>
+
+              </div>
+              </div>
+          
+              </div>
         </div>
       </section>
 
