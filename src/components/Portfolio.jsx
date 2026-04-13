@@ -77,6 +77,18 @@ export default function Portfolio() {
                 Ver Proyectos
               </a>
             </div>
+            <a
+              href="/CV_Iker_Muñoz.pdf"
+              download="CV_Iker_Muñoz.pdf"
+              className="flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-indigo-700 to-violet-800 border border-indigo-500/40 rounded-lg font-semibold text-indigo-200 hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/40 transition-all duration-300 relative overflow-hidden"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7,10 12,15 17,10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Descargar CV
+            </a>
             <div className="flex gap-4 pt-4">
               <a href="https://github.com/IkerMunozz" target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-800 rounded-lg hover:bg-slate-700 transition-all duration-300 hover:scale-110">
                 <Github size={24} />
