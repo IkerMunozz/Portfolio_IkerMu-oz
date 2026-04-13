@@ -76,8 +76,7 @@ export default function Portfolio() {
               <a href="#projects" onClick={() => scrollToSection('projects')} className="px-8 py-3 border-2 border-cyan-500/30 rounded-lg font-semibold hover:border-cyan-500 hover:bg-cyan-500/10 transition-all duration-300">
                 Ver Proyectos
               </a>
-            </div>
-            <a
+              <a
               href="/CV_Iker_Muñoz.pdf"
               download="CV_Iker_Muñoz.pdf"
               className="flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-indigo-700 to-violet-800 border border-indigo-500/40 rounded-lg font-semibold text-indigo-200 hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/40 transition-all duration-300 relative overflow-hidden"
@@ -89,6 +88,8 @@ export default function Portfolio() {
               </svg>
               Descargar CV
             </a>
+            </div>
+
             <div className="flex gap-4 pt-4">
               <a href="https://github.com/IkerMunozz" target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-800 rounded-lg hover:bg-slate-700 transition-all duration-300 hover:scale-110">
                 <Github size={24} />
