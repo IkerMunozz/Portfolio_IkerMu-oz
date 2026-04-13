@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, MapPin, Code2, Database, Brain, Server, Globe, ChevronDown, Eye, Settings, X } from 'lucide-react';
-import fotoPerfil from '../assets/images/foto-perfil.png'; 
+import fotoPerfil from '../assets/images/foto-perfil.png';
+import deteccion from '../assets/images/deteccion_vehiculos.png';
 import swappy1 from '../assets/images/swappy1.png'; 
 /*import swappy2 from '../assets/images/swappy2.png'; 
 import swappy3 from '../assets/images/swappy3.png'; 
