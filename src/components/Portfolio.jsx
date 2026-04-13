@@ -79,8 +79,7 @@ export default function Portfolio() {
               <a
               href="/CV_Iker_Muñoz.pdf"
               download="CV_Iker_Muñoz.pdf"
-              className="flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-indigo-700 to-violet-800 border border-indigo-500/40 rounded-lg font-semibold text-indigo-200 hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/40 transition-all duration-300 relative overflow-hidden"
-            >
+              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300"            >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                 <polyline points="7,10 12,15 17,10"/>
