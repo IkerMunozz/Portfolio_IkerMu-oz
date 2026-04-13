@@ -233,10 +233,6 @@ export default function Portfolio() {
                     <Github size={20} />
                     Ver Código
                   </a>
-                  <a href="https://github.com/IkerMunozz/TFC" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 border-2 border-cyan-500/30 rounded-lg font-semibold hover:border-cyan-500 hover:bg-cyan-500/10 transition-all duration-300">
-                    <ExternalLink size={20} />
-                    Documentación
-                  </a>
                 </div>
               </div>
 
