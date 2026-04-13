@@ -2,18 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, MapPin, Code2, Database, Brain, Server, Globe, ChevronDown, Eye, Settings, X } from 'lucide-react';
 import fotoPerfil from '../assets/images/foto-perfil.png'; 
 import swappy1 from '../assets/images/swappy1.png'; 
-import swappy2 from '../assets/images/swappy2.png'; 
+/*import swappy2 from '../assets/images/swappy2.png'; 
 import swappy3 from '../assets/images/swappy3.png'; 
 import swappy4 from '../assets/images/swappy4.png';
 import deteccion from '../assets/images/deteccion_vehiculos.png';
-
+*/
 function ProjectModal({ project, onClose }) {
   if (!project) return null;
 
   const isCyan = project.theme === 'cyan';
   const titleClass = isCyan ? 'text-cyan-400' : 'text-purple-400';
   const gradientClass = isCyan ? 'from-cyan-500 to-teal-500' : 'from-purple-500 to-pink-500';
-  const iconClass = isCyan ? 'text-cyan-400' : 'text-purple-400';
+  //const iconClass = isCyan ? 'text-cyan-400' : 'text-purple-400';
 
   return (
     <div className="fixed inset-0 z-[100] bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
