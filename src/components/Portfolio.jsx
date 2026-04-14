@@ -53,35 +53,35 @@ export default function Portfolio() {
         </div>
       </nav>
 
-      <section id="home" className="min-h-screen flex items-center justify-center px-6 pt-20">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6 animate-fade-in">
-            <div className="inline-block px-4 py-2 bg-cyan-500/10 rounded-full border border-cyan-500/30 text-cyan-400 text-sm font-medium mb-4">
+      <section id="home" className="min-h-screen flex items-center justify-center px-4 sm:px-6 pt-24 pb-12">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="space-y-4 sm:space-y-6 animate-fade-in">
+            <div className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-cyan-500/10 rounded-full border border-cyan-500/30 text-cyan-400 text-xs sm:text-sm font-medium mb-2 sm:mb-4">
               Disponible para oportunidades
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               Hola, soy{' '}
               <span className="bg-gradient-to-r from-cyan-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
                 Iker Muñoz
               </span>
             </h1>
-            <h2 className="text-2xl md:text-3xl text-slate-300 font-light">
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-slate-300 font-light">
               Desarrollador Web Full Stack
             </h2>
-            <p className="text-xl text-slate-400 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-slate-400 leading-relaxed">
               Especializado en <span className="text-cyan-400 font-semibold">Inteligencia Artificial</span> y <span className="text-cyan-400 font-semibold">Big Data</span>
             </p>
-            <div className="flex gap-4 pt-4">
-              <a href="#contact" onClick={() => scrollToSection('contact')} className="px-8 py-3 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 transform hover:scale-105">
+            <div className="flex flex-col sm:flex-row gap-3 pt-2 sm:pt-4">
+              <a href="#contact" onClick={() => scrollToSection('contact')} className="px-6 py-2.5 sm:px-8 sm:py-3 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-lg font-semibold text-sm sm:text-base hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 transform hover:scale-105 text-center">
                 Contáctame
               </a>
-              <a href="#projects" onClick={() => scrollToSection('projects')} className="px-8 py-3 border-2 border-cyan-500/30 rounded-lg font-semibold hover:border-cyan-500 hover:bg-cyan-500/10 transition-all duration-300">
+              <a href="#projects" onClick={() => scrollToSection('projects')} className="px-6 py-2.5 sm:px-8 sm:py-3 border-2 border-cyan-500/30 rounded-lg font-semibold text-sm sm:text-base hover:border-cyan-500 hover:bg-cyan-500/10 transition-all duration-300 text-center">
                 Ver Proyectos
               </a>
               <a
               href="/CV_Iker_Muñoz.pdf"
               download="CV_Iker_Muñoz.pdf"
-              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300"            >
+              className="flex items-center justify-center gap-2 px-4 py-2.5 sm:px-6 sm:py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg font-semibold text-sm sm:text-base hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300"            >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                 <polyline points="7,10 12,15 17,10"/>
@@ -91,44 +91,48 @@ export default function Portfolio() {
             </a>
             </div>
 
-            <div className="flex gap-4 pt-4">
-              <a href="https://github.com/IkerMunozz" target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-800 rounded-lg hover:bg-slate-700 transition-all duration-300 hover:scale-110">
-                <Github size={24} />
+            <div className="flex gap-3 sm:gap-4 pt-2 sm:pt-4">
+              <a href="https://github.com/IkerMunozz" target="_blank" rel="noopener noreferrer" className="p-2.5 sm:p-3 bg-slate-800 rounded-lg hover:bg-slate-700 transition-all duration-300 hover:scale-110">
+                <Github size={20} className="sm:hidden" />
+                <Github size={24} className="hidden sm:block" />
               </a>
-              <a href="https://www.linkedin.com/in/iker-muñoz-herrero" target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-800 rounded-lg hover:bg-slate-700 transition-all duration-300 hover:scale-110">
-                <Linkedin size={24} />
+              <a href="https://www.linkedin.com/in/iker-mu%C3%B1oz-herrero" target="_blank" rel="noopener noreferrer" className="p-2.5 sm:p-3 bg-slate-800 rounded-lg hover:bg-slate-700 transition-all duration-300 hover:scale-110">
+                <Linkedin size={20} className="sm:hidden" />
+                <Linkedin size={24} className="hidden sm:block" />
               </a>
-              <a href="mailto:ikermunozherrero@gmail.com" className="p-3 bg-slate-800 rounded-lg hover:bg-slate-700 transition-all duration-300 hover:scale-110">
-                <Mail size={24} />
+              <a href="mailto:ikermunozherrero@gmail.com" className="p-2.5 sm:p-3 bg-slate-800 rounded-lg hover:bg-slate-700 transition-all duration-300 hover:scale-110">
+                <Mail size={20} className="sm:hidden" />
+                <Mail size={24} className="hidden sm:block" />
               </a>
             </div>
           </div>
-          <div className="flex justify-center">
+          <div className="flex justify-center order-first md:order-last">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
-              <img 
-                src={fotoPerfil} 
-                alt="Iker Muñoz" 
-                className="relative w-80 h-80 object-cover rounded-full border-4 border-cyan-500/30 shadow-2xl shadow-cyan-500/20"
+              <img
+                src={fotoPerfil}
+                alt="Iker Muñoz"
+                className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 object-cover rounded-full border-4 border-cyan-500/30 shadow-2xl shadow-cyan-500/20"
               />
             </div>
           </div>
         </div>
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ChevronDown size={32} className="text-cyan-400" />
+        <div className="absolute bottom-6 sm:bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <ChevronDown size={28} className="text-cyan-400 sm:hidden" />
+          <ChevronDown size={32} className="text-cyan-400 hidden sm:block" />
         </div>
       </section>
 
       {/* About Section */}
       <section id="about" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-12 text-center">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 sm:mb-8 lg:mb-12 text-center">
             <span className="bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">
               Sobre mí
             </span>
           </h2>
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-            <div className="space-y-4 sm:space-y-6 text-slate-300 leading-relaxed text-sm sm:text-base lg:text-lg">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
+            <div className="space-y-3 sm:space-y-4 lg:space-y-6 text-slate-300 leading-relaxed text-sm sm:text-base lg:text-lg">
               <p>
                 Soy Desarrollador de Aplicaciones Web Full Stack con formación técnica en desarrollo backend y frontend, actualmente especializado en <span className="text-cyan-400 font-semibold">Inteligencia Artificial</span> y <span className="text-cyan-400 font-semibold">Big Data</span>, con experiencia práctica en entornos empresariales.
               </p>
@@ -139,13 +143,13 @@ export default function Portfolio() {
                 Durante mis prácticas en <span className="font-semibold text-white">HPE CDS (Hewlett Packard Enterprise)</span>, participé en proyectos reales implementando modelos de IA para detección de personas, fuego y vehículos, y desarrollando sistemas predictivos con Machine Learning.
               </p>
             </div>
-            <div className="space-y-4 sm:space-y-6">
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300">
-                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-cyan-400">Formación Actual</h3>
-                <div className="space-y-2 sm:space-y-3 text-slate-300">
+            <div className="space-y-3 sm:space-y-4 lg:space-y-6">
+              <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-5 lg:p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300">
+                <h3 className="text-base sm:text-lg lg:text-xl font-bold mb-2 sm:mb-3 lg:mb-4 text-cyan-400">Formación Actual</h3>
+                <div className="space-y-1.5 sm:space-y-2 lg:space-y-3 text-slate-300">
                   <p className="text-sm sm:text-base"><span className="font-semibold text-white">Especialización en IA y Big Data</span></p>
                   <p className="text-xs sm:text-sm">IES Ribera del Tajo</p>
-                  <ul className="list-disc list-inside space-y-1 sm:space-y-2 text-xs sm:text-sm ml-2">
+                  <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm ml-1 sm:ml-2">
                     <li>Machine Learning y Deep Learning</li>
                     <li>TensorFlow y PyTorch</li>
                     <li>Big Data con Hadoop y Cloudera</li>
@@ -153,12 +157,12 @@ export default function Portfolio() {
                   </ul>
                 </div>
               </div>
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300">
-                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-cyan-400">Experiencia</h3>
-                <div className="space-y-2 sm:space-y-3 text-slate-300">
+              <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-5 lg:p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300">
+                <h3 className="text-base sm:text-lg lg:text-xl font-bold mb-2 sm:mb-3 lg:mb-4 text-cyan-400">Experiencia</h3>
+                <div className="space-y-1.5 sm:space-y-2 lg:space-y-3 text-slate-300">
                   <p className="text-sm sm:text-base"><span className="font-semibold text-white">Prácticas en HPE CDS</span></p>
                   <p className="text-xs sm:text-sm">Hewlett Packard Enterprise</p>
-                  <ul className="list-disc list-inside space-y-1 sm:space-y-2 text-xs sm:text-sm ml-2">
+                  <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm ml-1 sm:ml-2">
                     <li>Desarrollo de modelos de IA para detección</li>
                     <li>Sistemas predictivos con ML</li>
                     <li>Despliegues en entornos productivos</li>
@@ -170,20 +174,20 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <section id="projects" className="py-20 px-6 bg-slate-900/50">
+      <section id="projects" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold mb-12 text-center">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 sm:mb-8 lg:mb-12 text-center">
             <span className="bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">
               Proyectos Destacados
             </span>
           </h2>
 
           {/* Tabs Menu */}
-          <div className="flex justify-center mb-12">
-            <div className="inline-flex bg-slate-800/60 backdrop-blur-sm rounded-xl p-1.5 border border-slate-700/50">
+          <div className="flex justify-center mb-6 sm:mb-8 lg:mb-12">
+            <div className="inline-flex bg-slate-800/60 backdrop-blur-sm rounded-xl p-1 sm:p-1.5 border border-slate-700/50">
               <button
                 onClick={() => setActiveTab('proyectos')}
-                className={`px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 ${
+                className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 ${
                   activeTab === 'proyectos'
                     ? 'bg-gradient-to-r from-cyan-500 to-teal-500 text-white shadow-lg shadow-cyan-500/30'
                     : 'text-slate-400 hover:text-white'
@@ -193,7 +197,7 @@ export default function Portfolio() {
               </button>
               <button
                 onClick={() => setActiveTab('vibecoding')}
-                className={`px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 ${
+                className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 ${
                   activeTab === 'vibecoding'
                     ? 'bg-gradient-to-r from-cyan-500 to-teal-500 text-white shadow-lg shadow-cyan-500/30'
                     : 'text-slate-400 hover:text-white'
@@ -206,69 +210,69 @@ export default function Portfolio() {
 
           {activeTab === 'proyectos' && (
           <div className="space-y-16">
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 shadow-2xl mb-16">
-            <div className="grid md:grid-cols-2 gap-0">
-              <div className="p-8 space-y-6">
+            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 shadow-2xl mb-8 sm:mb-16">
+            <div className="flex flex-col md:grid md:grid-cols-2">
+              <div className="p-4 sm:p-6 lg:p-8 space-y-4 sm:space-y-6">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg flex items-center justify-center">
-                    <Code2 size={24} />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg flex items-center justify-center">
+                    <Code2 size={20} className="sm:w-6 sm:h-6" />
                   </div>
-                  <h3 className="text-3xl font-bold">Swappy</h3>
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold">Swappy</h3>
                 </div>
 
-                <p className="text-slate-300 leading-relaxed text-lg">
+                <p className="text-slate-300 leading-relaxed text-sm sm:text-base lg:text-lg">
                   Plataforma web de compraventa de productos de segunda mano que integra <span className="text-cyan-400 font-semibold">Inteligencia Artificial</span> para validación automática de imágenes y geolocalización para optimizar envíos.
                 </p>
 
-                <div className="space-y-4">
-                  <h4 className="text-xl font-semibold text-cyan-400">Características Principales</h4>
-                  <ul className="space-y-3 text-slate-300">
+                <div className="space-y-3 sm:space-y-4">
+                  <h4 className="text-lg sm:text-xl font-semibold text-cyan-400">Características Principales</h4>
+                  <ul className="space-y-2 sm:space-y-3 text-slate-300">
                     <li className="flex items-start gap-3">
-                      <Brain className="text-cyan-400 mt-1 flex-shrink-0" size={20} />
-                      <span><span className="font-semibold text-white">Validación con IA:</span> Sistema automático con YOLOv8 que detecta objetos en imágenes, garantizando la calidad de las publicaciones</span>
+                      <Brain className="text-cyan-400 mt-1 flex-shrink-0" size={18} />
+                      <span className="text-sm sm:text-base"><span className="font-semibold text-white">Validación con IA:</span> Sistema automático con YOLOv8 que detecta objetos en imágenes, garantizando la calidad de las publicaciones</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <MapPin className="text-cyan-400 mt-1 flex-shrink-0" size={20} />
-                      <span><span className="font-semibold text-white">Geolocalización:</span> Mapa interactivo con Leaflet que muestra oficinas de Correos cercanas en tiempo real</span>
+                      <MapPin className="text-cyan-400 mt-1 flex-shrink-0" size={18} />
+                      <span className="text-sm sm:text-base"><span className="font-semibold text-white">Geolocalización:</span> Mapa interactivo con Leaflet que muestra oficinas de Correos cercanas en tiempo real</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <Globe className="text-cyan-400 mt-1 flex-shrink-0" size={20} />
-                      <span><span className="font-semibold text-white">Interfaz Intuitiva:</span> Diseño responsive y experiencia de usuario optimizada para facilitar compras y ventas</span>
+                      <Globe className="text-cyan-400 mt-1 flex-shrink-0" size={18} />
+                      <span className="text-sm sm:text-base"><span className="font-semibold text-white">Interfaz Intuitiva:</span> Diseño responsive y experiencia de usuario optimizada para facilitar compras y ventas</span>
                     </li>
                   </ul>
                 </div>
 
-                <div className="space-y-3">
-                  <h4 className="text-xl font-semibold text-cyan-400">Stack Tecnológico</h4>
-                  <div className="flex flex-wrap gap-2">
+                <div className="space-y-2 sm:space-y-3">
+                  <h4 className="text-lg sm:text-xl font-semibold text-cyan-400">Stack Tecnológico</h4>
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
                     {['Java', 'Spring Boot', 'MySQL', 'Python', 'YOLOv8', 'HTML', 'CSS', 'JavaScript', 'Thymeleaf', 'Leaflet', 'Docker', 'Railway'].map(tech => (
-                      <span key={tech} className="px-3 py-1 bg-slate-700/50 rounded-lg text-sm border border-slate-600/50 hover:border-cyan-500/50 transition-colors">
+                      <span key={tech} className="px-2 py-0.5 sm:px-3 sm:py-1 bg-slate-700/50 rounded-lg text-xs sm:text-sm border border-slate-600/50 hover:border-cyan-500/50 transition-colors">
                         {tech}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                <div className="space-y-3">
-                  <h4 className="text-xl font-semibold text-cyan-400">Resultados</h4>
-                  <ul className="space-y-2 text-slate-300">
+                <div className="space-y-2 sm:space-y-3">
+                  <h4 className="text-lg sm:text-xl font-semibold text-cyan-400">Resultados</h4>
+                  <ul className="space-y-1.5 sm:space-y-2 text-slate-300 text-sm sm:text-base">
                     <li>✓ Valoración de usuarios: <span className="font-semibold text-white">4-5/5</span></li>
                     <li>✓ Validación exitosa de imágenes con <span className="font-semibold text-white">alta precisión</span></li>
                     <li>✓ Despliegue en producción con <span className="font-semibold text-white">Docker y Railway</span></li>
                   </ul>
                 </div>
 
-                <div className="flex gap-4 pt-4">
-                  <a href="https://github.com/IkerMunozz/TFC" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300">
-                    <Github size={20} />
+                <div className="flex gap-3 sm:gap-4 pt-2 sm:pt-4">
+                  <a href="https://github.com/IkerMunozz/TFC" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-lg font-semibold text-sm sm:text-base hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300">
+                    <Github size={18} />
                     Ver Código
                   </a>
                 </div>
               </div>
 
-              <div className="bg-slate-900 p-6 flex flex-col gap-4">
+              <div className="bg-slate-900 p-4 sm:p-6 flex flex-col gap-3 sm:gap-4">
                 <img src={swappy1} alt="Swappy - Inicio" className="rounded-lg border border-slate-700 hover:border-cyan-500/50 transition-all duration-300 w-full" />
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <img src={swappy2} alt="Swappy - Perfil" className="w-full rounded-lg border border-slate-700 hover:border-cyan-500/50 transition-all duration-300" />
                   <img src={swappy3} alt="Swappy - Publicar" className="w-full rounded-lg border border-slate-700 hover:border-cyan-500/50 transition-all duration-300" />
                 </div>
@@ -276,49 +280,49 @@ export default function Portfolio() {
               </div>
             </div>
           </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700/50 hover:border-purple-500/50 transition-all duration-300 shadow-2xl">
-            <div className="grid md:grid-cols-2 gap-0">
-              
-              <div className="p-8 space-y-6">
+          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700/50 hover:border-purple-500/50 transition-all duration-300 shadow-2xl mb-8 sm:mb-16">
+            <div className="flex flex-col md:grid md:grid-cols-2">
+
+              <div className="p-4 sm:p-6 lg:p-8 space-y-4 sm:space-y-6">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
-                    <Brain size={24} />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                    <Brain size={20} className="sm:w-6 sm:h-6" />
                   </div>
-                  <h3 className="text-3xl font-bold">Custom Object Detection (YOLOv8)</h3>
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold">Custom Object Detection (YOLOv8)</h3>
                 </div>
 
-                <p className="text-slate-300 leading-relaxed text-lg">
+                <p className="text-slate-300 leading-relaxed text-sm sm:text-base lg:text-lg">
                   Sistema avanzado de <span className="text-purple-400 font-semibold">visión por computador</span> basado en YOLOv8, enfocado en la detección personalizada de objetos (<span className="font-semibold text-white">keys</span>) mediante fine-tuning y arquitectura multi-modelo para preservar detección general COCO.
                 </p>
 
-                <div className="space-y-4">
-                  <h4 className="text-xl font-semibold text-purple-400">Características Principales</h4>
-                  <ul className="space-y-3 text-slate-300">
+                <div className="space-y-3 sm:space-y-4">
+                  <h4 className="text-lg sm:text-xl font-semibold text-purple-400">Características Principales</h4>
+                  <ul className="space-y-2 sm:space-y-3 text-slate-300">
 
                     <li className="flex items-start gap-3">
-                      <Brain className="text-purple-400 mt-1 flex-shrink-0" size={20} />
-                      <span>
+                      <Brain className="text-purple-400 mt-1 flex-shrink-0" size={18} />
+                      <span className="text-sm sm:text-base">
                         <span className="font-semibold text-white">Fine-tuning personalizado:</span> Entrenamiento específico de YOLOv8 para añadir una nueva clase (<span className="text-white">keys</span>) mediante anotación y adaptación de dataset.
                       </span>
                     </li>
 
                     <li className="flex items-start gap-3">
-                      <Code2 className="text-purple-400 mt-1 flex-shrink-0" size={20} />
-                      <span>
+                      <Code2 className="text-purple-400 mt-1 flex-shrink-0" size={18} />
+                      <span className="text-sm sm:text-base">
                         <span className="font-semibold text-white">Arquitectura multi-modelo:</span> Integración simultánea de dos modelos (YOLOv8 COCO + modelo fine-tuned) para evitar <span className="italic">catastrophic forgetting</span>.
                       </span>
                     </li>
 
                     <li className="flex items-start gap-3">
-                      <Eye className="text-purple-400 mt-1 flex-shrink-0" size={20} />
-                      <span>
+                      <Eye className="text-purple-400 mt-1 flex-shrink-0" size={18} />
+                      <span className="text-sm sm:text-base">
                         <span className="font-semibold text-white">Detección en tiempo real:</span> Procesamiento de vídeo en vivo con OpenCV, combinando resultados de ambos modelos en una única visualización.
                       </span>
                     </li>
 
                     <li className="flex items-start gap-3">
-                      <Settings className="text-purple-400 mt-1 flex-shrink-0" size={20} />
-                      <span>
+                      <Settings className="text-purple-400 mt-1 flex-shrink-0" size={18} />
+                      <span className="text-sm sm:text-base">
                         <span className="font-semibold text-white">Pipeline completo:</span> Preparación de dataset, corrección de etiquetas, configuración multiplataforma (Windows/Linux) y optimización de inferencia.
                       </span>
                     </li>
@@ -326,20 +330,20 @@ export default function Portfolio() {
                   </ul>
                 </div>
 
-                <div className="space-y-3">
-                  <h4 className="text-xl font-semibold text-purple-400">Stack Tecnológico</h4>
-                  <div className="flex flex-wrap gap-2">
+                <div className="space-y-2 sm:space-y-3">
+                  <h4 className="text-lg sm:text-xl font-semibold text-purple-400">Stack Tecnológico</h4>
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
                     {['Python', 'YOLOv8', 'PyTorch', 'OpenCV', 'Computer Vision', 'Deep Learning', 'Object Detection', 'Fine-tuning', 'Dataset Annotation'].map(tech => (
-                      <span key={tech} className="px-3 py-1 bg-slate-700/50 rounded-lg text-sm border border-slate-600/50 hover:border-purple-500/50 transition-colors">
+                      <span key={tech} className="px-2 py-0.5 sm:px-3 sm:py-1 bg-slate-700/50 rounded-lg text-xs sm:text-sm border border-slate-600/50 hover:border-purple-500/50 transition-colors">
                         {tech}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                <div className="space-y-3">
-                  <h4 className="text-xl font-semibold text-purple-400">Resultados</h4>
-                  <ul className="space-y-2 text-slate-300">
+                <div className="space-y-2 sm:space-y-3">
+                  <h4 className="text-lg sm:text-xl font-semibold text-purple-400">Resultados</h4>
+                  <ul className="space-y-1.5 sm:space-y-2 text-slate-300 text-sm sm:text-base">
                     <li>Detección precisa de objetos personalizados (<span className="font-semibold text-white">keys</span>)</li>
                     <li>Preservación de detección COCO mediante arquitectura multi-modelo</li>
                     <li>Sistema de detección en tiempo real funcional en CPU</li>
@@ -347,15 +351,15 @@ export default function Portfolio() {
                   </ul>
                 </div>
 
-                <div className="flex gap-4 pt-4">
-                  <a href="https://github.com/IkerMunozz" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300">
-                    <Github size={20} />
+                <div className="flex gap-3 sm:gap-4 pt-2 sm:pt-4">
+                  <a href="https://github.com/IkerMunozz" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg font-semibold text-sm sm:text-base hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300">
+                    <Github size={18} />
                     Ver Código
                   </a>
                 </div>
               </div>
 
-              <div className="bg-slate-900 p-6 flex items-center justify-center">
+              <div className="bg-slate-900 p-4 sm:p-6 flex items-center justify-center">
                <video
                   src="/videos/VideoDemostracion.mp4"
                   controls
@@ -369,31 +373,31 @@ export default function Portfolio() {
 
             </div>
           </div>
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 shadow-2xl mb-16">
-              <div className="grid md:grid-cols-2 gap-0">
+            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 shadow-2xl mb-8 sm:mb-16">
+              <div className="flex flex-col md:grid md:grid-cols-2">
 
-                <div className="p-8 space-y-6">
+                <div className="p-4 sm:p-6 lg:p-8 space-y-4 sm:space-y-6">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg flex items-center justify-center">
-                      <Database size={24} />
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg flex items-center justify-center">
+                      <Database size={20} className="sm:w-6 sm:h-6" />
                     </div>
-                    <h3 className="text-3xl font-bold">Traffic Flow Analysis & Prediction</h3>
+                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold">Traffic Flow Analysis & Prediction</h3>
                   </div>
 
-                  <p className="text-slate-300 leading-relaxed text-lg">
+                  <p className="text-slate-300 leading-relaxed text-sm sm:text-base lg:text-lg">
                     Sistema de análisis y predicción de tráfico urbano mediante técnicas de
                     <span className="text-cyan-400 font-semibold"> Machine Learning </span>
                     y análisis de datos, enfocado en la identificación de patrones temporales
                     y la predicción de congestión a partir de datos reales.
                   </p>
 
-                  <div className="space-y-4">
-                    <h4 className="text-xl font-semibold text-cyan-400">Características Principales</h4>
-                    <ul className="space-y-3 text-slate-300">
+                  <div className="space-y-3 sm:space-y-4">
+                    <h4 className="text-lg sm:text-xl font-semibold text-cyan-400">Características Principales</h4>
+                    <ul className="space-y-2 sm:space-y-3 text-slate-300">
 
                       <li className="flex items-start gap-3">
-                        <Database className="text-cyan-400 mt-1 flex-shrink-0" size={20} />
-                        <span>
+                        <Database className="text-cyan-400 mt-1 flex-shrink-0" size={18} />
+                        <span className="text-sm sm:text-base">
                           <span className="font-semibold text-white">Análisis Exploratorio: </span>
                           Limpieza, transformación y visualización de datos para identificar
                           patrones de tráfico por franja horaria y día de la semana.
@@ -401,8 +405,8 @@ export default function Portfolio() {
                       </li>
 
                       <li className="flex items-start gap-3">
-                        <Brain className="text-cyan-400 mt-1 flex-shrink-0" size={20} />
-                        <span>
+                        <Brain className="text-cyan-400 mt-1 flex-shrink-0" size={18} />
+                        <span className="text-sm sm:text-base">
                           <span className="font-semibold text-white">Modelado Predictivo: </span>
                           Entrenamiento y evaluación de modelos de Machine Learning
                           para estimar niveles de congestión futuros.
@@ -410,8 +414,8 @@ export default function Portfolio() {
                       </li>
 
                       <li className="flex items-start gap-3">
-                        <Globe className="text-cyan-400 mt-1 flex-shrink-0" size={20} />
-                        <span>
+                        <Globe className="text-cyan-400 mt-1 flex-shrink-0" size={18} />
+                        <span className="text-sm sm:text-base">
                           <span className="font-semibold text-white">Visualización de Resultados: </span>
                           Representación gráfica de tendencias y comparación entre
                           valores reales y predichos.
@@ -419,8 +423,8 @@ export default function Portfolio() {
                       </li>
 
                       <li className="flex items-start gap-3">
-                        <Settings className="text-cyan-400 mt-1 flex-shrink-0" size={20} />
-                        <span>
+                        <Settings className="text-cyan-400 mt-1 flex-shrink-0" size={18} />
+                        <span className="text-sm sm:text-base">
                           <span className="font-semibold text-white">Pipeline Completo: </span>
                           Preprocesamiento, división train/test, entrenamiento,
                           validación y análisis de métricas de rendimiento.
@@ -430,9 +434,9 @@ export default function Portfolio() {
                     </ul>
                   </div>
 
-                  <div className="space-y-3">
-                    <h4 className="text-xl font-semibold text-cyan-400">Stack Tecnológico</h4>
-                    <div className="flex flex-wrap gap-2">
+                  <div className="space-y-2 sm:space-y-3">
+                    <h4 className="text-lg sm:text-xl font-semibold text-cyan-400">Stack Tecnológico</h4>
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2">
                       {[
                         'Python',
                         'Pandas',
@@ -446,7 +450,7 @@ export default function Portfolio() {
                       ].map(tech => (
                         <span
                           key={tech}
-                          className="px-3 py-1 bg-slate-700/50 rounded-lg text-sm border border-slate-600/50 hover:border-cyan-500/50 transition-colors"
+                          className="px-2 py-0.5 sm:px-3 sm:py-1 bg-slate-700/50 rounded-lg text-xs sm:text-sm border border-slate-600/50 hover:border-cyan-500/50 transition-colors"
                         >
                           {tech}
                         </span>
@@ -454,9 +458,9 @@ export default function Portfolio() {
                     </div>
                   </div>
 
-                  <div className="space-y-3">
-                    <h4 className="text-xl font-semibold text-cyan-400">Resultados</h4>
-                    <ul className="space-y-2 text-slate-300">
+                  <div className="space-y-2 sm:space-y-3">
+                    <h4 className="text-lg sm:text-xl font-semibold text-cyan-400">Resultados</h4>
+                    <ul className="space-y-1.5 sm:space-y-2 text-slate-300 text-sm sm:text-base">
                       <li>Identificación clara de patrones de congestión por franja horaria</li>
                       <li>Modelo predictivo con buena capacidad de generalización</li>
                       <li>Aplicación práctica de técnicas de regresión y análisis temporal</li>
@@ -464,20 +468,20 @@ export default function Portfolio() {
                     </ul>
                   </div>
 
-                  <div className="flex gap-4 pt-4">
+                  <div className="flex gap-3 sm:gap-4 pt-2 sm:pt-4">
                     <a
                       href="https://github.com/IkerMunozz/Modelo_AnalisisTrafico"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300"
+                      className="flex items-center gap-2 px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-lg font-semibold text-sm sm:text-base hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300"
                     >
-                      <Github size={20} />
+                      <Github size={18} />
                       Ver Código
                     </a>
                   </div>
                 </div>
 
-                <div className="bg-slate-900 p-6 flex flex-col gap-6">
+                <div className="bg-slate-900 p-4 sm:p-6 flex flex-col gap-4 sm:gap-6">
 
                   <div className="w-full">
                     <video
@@ -506,13 +510,13 @@ export default function Portfolio() {
           )}
 
           {activeTab === 'vibecoding' && (
-            <div className="bg-slate-800/30 backdrop-blur-sm rounded-2xl border border-dashed border-slate-700/50 p-16 text-center">
+            <div className="bg-slate-800/30 backdrop-blur-sm rounded-2xl border border-dashed border-slate-700/50 p-8 sm:p-16 text-center">
               <div className="max-w-md mx-auto space-y-4">
-                <div className="w-16 h-16 mx-auto bg-slate-700/50 rounded-full flex items-center justify-center">
-                  <Code2 size={28} className="text-slate-500" />
+                <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-slate-700/50 rounded-full flex items-center justify-center">
+                  <Code2 size={24} className="sm:w-7 sm:h-7 text-slate-500" />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-400">Próximamente</h3>
-                <p className="text-slate-500 leading-relaxed">
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-400">Próximamente</h3>
+                <p className="text-slate-500 leading-relaxed text-sm sm:text-base">
                   Los proyectos de Vibe Coding estarán disponibles pronto. Stay tuned!
                 </p>
               </div>
@@ -522,23 +526,23 @@ export default function Portfolio() {
       </section>
 
 
-      <section id="skills" className="py-20 px-6">
+      <section id="skills" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold mb-12 text-center">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 sm:mb-8 lg:mb-12 text-center">
             <span className="bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">
               Stack Tecnológico
             </span>
           </h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg">
-                  <Code2 size={24} />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-5 lg:p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-4">
+                <div className="p-2.5 sm:p-3 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg">
+                  <Code2 size={20} className="sm:w-6 sm:h-6" />
                 </div>
-                <h3 className="text-xl font-bold">Frontend</h3>
+                <h3 className="text-base sm:text-lg lg:text-xl font-bold">Frontend</h3>
               </div>
-              <div className="space-y-2 text-slate-300">
+              <div className="space-y-1.5 sm:space-y-2 text-slate-300 text-sm sm:text-base">
                 <p>• React & JavaScript</p>
                 <p>• HTML5 & CSS3</p>
                 <p>• Thymeleaf</p>
@@ -547,14 +551,14 @@ export default function Portfolio() {
               </div>
             </div>
 
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg">
-                  <Server size={24} />
+            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-5 lg:p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-4">
+                <div className="p-2.5 sm:p-3 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg">
+                  <Server size={20} className="sm:w-6 sm:h-6" />
                 </div>
-                <h3 className="text-xl font-bold">Backend</h3>
+                <h3 className="text-base sm:text-lg lg:text-xl font-bold">Backend</h3>
               </div>
-              <div className="space-y-2 text-slate-300">
+              <div className="space-y-1.5 sm:space-y-2 text-slate-300 text-sm sm:text-base">
                 <p>• Java & Spring Boot</p>
                 <p>• JPA & Hibernate</p>
                 <p>• API REST</p>
@@ -563,14 +567,14 @@ export default function Portfolio() {
               </div>
             </div>
 
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg">
-                  <Brain size={24} />
+            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-5 lg:p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-4">
+                <div className="p-2.5 sm:p-3 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg">
+                  <Brain size={20} className="sm:w-6 sm:h-6" />
                 </div>
-                <h3 className="text-xl font-bold">IA & ML</h3>
+                <h3 className="text-base sm:text-lg lg:text-xl font-bold">IA & ML</h3>
               </div>
-              <div className="space-y-2 text-slate-300">
+              <div className="space-y-1.5 sm:space-y-2 text-slate-300 text-sm sm:text-base">
                 <p>• TensorFlow</p>
                 <p>• PyTorch</p>
                 <p>• YOLOv8</p>
@@ -579,14 +583,14 @@ export default function Portfolio() {
               </div>
             </div>
 
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg">
-                  <Database size={24} />
+            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-5 lg:p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-4">
+                <div className="p-2.5 sm:p-3 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg">
+                  <Database size={20} className="sm:w-6 sm:h-6" />
                 </div>
-                <h3 className="text-xl font-bold">Bases de Datos</h3>
+                <h3 className="text-base sm:text-lg lg:text-xl font-bold">Bases de Datos</h3>
               </div>
-              <div className="space-y-2 text-slate-300">
+              <div className="space-y-1.5 sm:space-y-2 text-slate-300 text-sm sm:text-base">
                 <p>• MySQL</p>
                 <p>• MongoDB</p>
                 <p>• SQL & NoSQL</p>
@@ -595,14 +599,14 @@ export default function Portfolio() {
               </div>
             </div>
 
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg">
-                  <Server size={24} />
+            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-5 lg:p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-4">
+                <div className="p-2.5 sm:p-3 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg">
+                  <Server size={20} className="sm:w-6 sm:h-6" />
                 </div>
-                <h3 className="text-xl font-bold">Big Data</h3>
+                <h3 className="text-base sm:text-lg lg:text-xl font-bold">Big Data</h3>
               </div>
-              <div className="space-y-2 text-slate-300">
+              <div className="space-y-1.5 sm:space-y-2 text-slate-300 text-sm sm:text-base">
                 <p>• Hadoop</p>
                 <p>• Cloudera</p>
                 <p>• Grafana</p>
@@ -611,14 +615,14 @@ export default function Portfolio() {
               </div>
             </div>
 
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg">
-                  <Globe size={24} />
+            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-5 lg:p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-4">
+                <div className="p-2.5 sm:p-3 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg">
+                  <Globe size={20} className="sm:w-6 sm:h-6" />
                 </div>
-                <h3 className="text-xl font-bold">DevOps & Tools</h3>
+                <h3 className="text-base sm:text-lg lg:text-xl font-bold">DevOps & Tools</h3>
               </div>
-              <div className="space-y-2 text-slate-300">
+              <div className="space-y-1.5 sm:space-y-2 text-slate-300 text-sm sm:text-base">
                 <p>• Docker</p>
                 <p>• Git & GitHub</p>
                 <p>• Linux</p>
@@ -631,38 +635,38 @@ export default function Portfolio() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-6 bg-slate-900/50">
+      <section id="contact" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6">
             <span className="bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">
               ¿Hablamos?
             </span>
           </h2>
-          <p className="text-xl text-slate-300 mb-12">
+          <p className="text-base sm:text-lg lg:text-xl text-slate-300 mb-8 sm:mb-12 px-4">
             Estoy abierto a oportunidades junior, prácticas y proyectos en IA, Big Data y desarrollo Full Stack
           </p>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
-            <a href="mailto:ikermunozherrero@gmail.com" className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
-              <Mail size={32} className="mx-auto mb-4 text-cyan-400" />
-              <h3 className="font-semibold mb-2">Email</h3>
-              <p className="text-sm text-slate-400">ikermunozherrero@gmail.com</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
+            <a href="mailto:ikermunozherrero@gmail.com" className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-5 sm:p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
+              <Mail size={28} className="sm:w-8 sm:h-8 mx-auto mb-3 sm:mb-4 text-cyan-400" />
+              <h3 className="font-semibold mb-1.5 sm:mb-2 text-sm sm:text-base">Email</h3>
+              <p className="text-xs sm:text-sm text-slate-400 break-all">ikermunozherrero@gmail.com</p>
             </a>
 
-            <a href="https://www.linkedin.com/in/iker-muñoz-herrero" target="_blank" rel="noopener noreferrer" className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
-              <Linkedin size={32} className="mx-auto mb-4 text-cyan-400" />
-              <h3 className="font-semibold mb-2">LinkedIn</h3>
-              <p className="text-sm text-slate-400">iker-muñoz-herrero</p>
+            <a href="https://www.linkedin.com/in/iker-mu%C3%B1oz-herrero" target="_blank" rel="noopener noreferrer" className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-5 sm:p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
+              <Linkedin size={28} className="sm:w-8 sm:h-8 mx-auto mb-3 sm:mb-4 text-cyan-400" />
+              <h3 className="font-semibold mb-1.5 sm:mb-2 text-sm sm:text-base">LinkedIn</h3>
+              <p className="text-xs sm:text-sm text-slate-400">iker-muñoz-herrero</p>
             </a>
 
-            <a href="https://github.com/IkerMunozz" target="_blank" rel="noopener noreferrer" className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
-              <Github size={32} className="mx-auto mb-4 text-cyan-400" />
-              <h3 className="font-semibold mb-2">GitHub</h3>
-              <p className="text-sm text-slate-400">IkerMunozz</p>
+            <a href="https://github.com/IkerMunozz" target="_blank" rel="noopener noreferrer" className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-5 sm:p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
+              <Github size={28} className="sm:w-8 sm:h-8 mx-auto mb-3 sm:mb-4 text-cyan-400" />
+              <h3 className="font-semibold mb-1.5 sm:mb-2 text-sm sm:text-base">GitHub</h3>
+              <p className="text-xs sm:text-sm text-slate-400">IkerMunozz</p>
             </a>
           </div>
 
-          <div className="flex items-center justify-center gap-2 text-slate-400">
+          <div className="flex items-center justify-center gap-2 text-slate-400 text-sm sm:text-base">
             <MapPin size={20} className="text-cyan-400" />
             <span>Toledo, España</span>
           </div>
