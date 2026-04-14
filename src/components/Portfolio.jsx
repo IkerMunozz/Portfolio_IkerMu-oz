@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, MapPin, Code2, Database, Brain, Server, Globe, ChevronDown, Eye, Settings  } from 'lucide-react';
-import fotoPerfil from '../assets/images/foto-perfil.png'; 
-import swappy1 from '../assets/images/swappy1.png'; 
-import swappy2 from '../assets/images/swappy2.png'; 
-import swappy3 from '../assets/images/swappy3.png'; 
+import fotoPerfil from '../assets/images/foto-perfil.png';
+import swappy1 from '../assets/images/swappy1.png';
+import swappy2 from '../assets/images/swappy2.png';
+import swappy3 from '../assets/images/swappy3.png';
 import swappy4 from '../assets/images/swappy4.png';
 import deteccion from '../assets/images/deteccion_vehiculos.png';
 export default function Portfolio() {
   //const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeTab, setActiveTab] = useState('proyectos');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -175,7 +176,35 @@ export default function Portfolio() {
               Proyectos Destacados
             </span>
           </h2>
-        <div className="space-y-16">
+
+          {/* Tabs Menu */}
+          <div className="flex justify-center mb-12">
+            <div className="inline-flex bg-slate-800/60 backdrop-blur-sm rounded-xl p-1.5 border border-slate-700/50">
+              <button
+                onClick={() => setActiveTab('proyectos')}
+                className={`px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 ${
+                  activeTab === 'proyectos'
+                    ? 'bg-gradient-to-r from-cyan-500 to-teal-500 text-white shadow-lg shadow-cyan-500/30'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                Proyectos
+              </button>
+              <button
+                onClick={() => setActiveTab('vibecoding')}
+                className={`px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 ${
+                  activeTab === 'vibecoding'
+                    ? 'bg-gradient-to-r from-cyan-500 to-teal-500 text-white shadow-lg shadow-cyan-500/30'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                Vibe Coding
+              </button>
+            </div>
+          </div>
+
+          {activeTab === 'proyectos' && (
+          <div className="space-y-16">
             <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 shadow-2xl mb-16">
             <div className="grid md:grid-cols-2 gap-0">
               <div className="p-8 space-y-6">
@@ -185,7 +214,7 @@ export default function Portfolio() {
                   </div>
                   <h3 className="text-3xl font-bold">Swappy</h3>
                 </div>
-                
+
                 <p className="text-slate-300 leading-relaxed text-lg">
                   Plataforma web de compraventa de productos de segunda mano que integra <span className="text-cyan-400 font-semibold">Inteligencia Artificial</span> para validación automática de imágenes y geolocalización para optimizar envíos.
                 </p>
@@ -256,7 +285,7 @@ export default function Portfolio() {
                   </div>
                   <h3 className="text-3xl font-bold">Custom Object Detection (YOLOv8)</h3>
                 </div>
-                
+
                 <p className="text-slate-300 leading-relaxed text-lg">
                   Sistema avanzado de <span className="text-purple-400 font-semibold">visión por computador</span> basado en YOLOv8, enfocado en la detección personalizada de objetos (<span className="font-semibold text-white">keys</span>) mediante fine-tuning y arquitectura multi-modelo para preservar detección general COCO.
                 </p>
@@ -264,7 +293,7 @@ export default function Portfolio() {
                 <div className="space-y-4">
                   <h4 className="text-xl font-semibold text-purple-400">Características Principales</h4>
                   <ul className="space-y-3 text-slate-300">
-                    
+
                     <li className="flex items-start gap-3">
                       <Brain className="text-purple-400 mt-1 flex-shrink-0" size={20} />
                       <span>
@@ -295,7 +324,7 @@ export default function Portfolio() {
 
                   </ul>
                 </div>
-                
+
                 <div className="space-y-3">
                   <h4 className="text-xl font-semibold text-purple-400">Stack Tecnológico</h4>
                   <div className="flex flex-wrap gap-2">
@@ -341,7 +370,7 @@ export default function Portfolio() {
           </div>
             <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 shadow-2xl mb-16">
               <div className="grid md:grid-cols-2 gap-0">
-                
+
                 <div className="p-8 space-y-6">
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg flex items-center justify-center">
@@ -349,11 +378,11 @@ export default function Portfolio() {
                     </div>
                     <h3 className="text-3xl font-bold">Traffic Flow Analysis & Prediction</h3>
                   </div>
-                  
+
                   <p className="text-slate-300 leading-relaxed text-lg">
-                    Sistema de análisis y predicción de tráfico urbano mediante técnicas de 
-                    <span className="text-cyan-400 font-semibold"> Machine Learning </span> 
-                    y análisis de datos, enfocado en la identificación de patrones temporales 
+                    Sistema de análisis y predicción de tráfico urbano mediante técnicas de
+                    <span className="text-cyan-400 font-semibold"> Machine Learning </span>
+                    y análisis de datos, enfocado en la identificación de patrones temporales
                     y la predicción de congestión a partir de datos reales.
                   </p>
 
@@ -364,8 +393,8 @@ export default function Portfolio() {
                       <li className="flex items-start gap-3">
                         <Database className="text-cyan-400 mt-1 flex-shrink-0" size={20} />
                         <span>
-                          <span className="font-semibold text-white">Análisis Exploratorio:</span> 
-                          Limpieza, transformación y visualización de datos para identificar 
+                          <span className="font-semibold text-white">Análisis Exploratorio: </span>
+                          Limpieza, transformación y visualización de datos para identificar
                           patrones de tráfico por franja horaria y día de la semana.
                         </span>
                       </li>
@@ -373,8 +402,8 @@ export default function Portfolio() {
                       <li className="flex items-start gap-3">
                         <Brain className="text-cyan-400 mt-1 flex-shrink-0" size={20} />
                         <span>
-                          <span className="font-semibold text-white">Modelado Predictivo:</span> 
-                          Entrenamiento y evaluación de modelos de Machine Learning 
+                          <span className="font-semibold text-white">Modelado Predictivo: </span>
+                          Entrenamiento y evaluación de modelos de Machine Learning
                           para estimar niveles de congestión futuros.
                         </span>
                       </li>
@@ -382,8 +411,8 @@ export default function Portfolio() {
                       <li className="flex items-start gap-3">
                         <Globe className="text-cyan-400 mt-1 flex-shrink-0" size={20} />
                         <span>
-                          <span className="font-semibold text-white">Visualización de Resultados:</span> 
-                          Representación gráfica de tendencias y comparación entre 
+                          <span className="font-semibold text-white">Visualización de Resultados: </span>
+                          Representación gráfica de tendencias y comparación entre
                           valores reales y predichos.
                         </span>
                       </li>
@@ -391,15 +420,15 @@ export default function Portfolio() {
                       <li className="flex items-start gap-3">
                         <Settings className="text-cyan-400 mt-1 flex-shrink-0" size={20} />
                         <span>
-                          <span className="font-semibold text-white">Pipeline Completo:</span> 
-                          Preprocesamiento, división train/test, entrenamiento, 
+                          <span className="font-semibold text-white">Pipeline Completo: </span>
+                          Preprocesamiento, división train/test, entrenamiento,
                           validación y análisis de métricas de rendimiento.
                         </span>
                       </li>
 
                     </ul>
                   </div>
-                  
+
                   <div className="space-y-3">
                     <h4 className="text-xl font-semibold text-cyan-400">Stack Tecnológico</h4>
                     <div className="flex flex-wrap gap-2">
@@ -471,9 +500,23 @@ export default function Portfolio() {
                 </div>
 
               </div>
+            </div>
+          </div>
+          )}
+
+          {activeTab === 'vibecoding' && (
+            <div className="bg-slate-800/30 backdrop-blur-sm rounded-2xl border border-dashed border-slate-700/50 p-16 text-center">
+              <div className="max-w-md mx-auto space-y-4">
+                <div className="w-16 h-16 mx-auto bg-slate-700/50 rounded-full flex items-center justify-center">
+                  <Code2 size={28} className="text-slate-500" />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-400">Próximamente</h3>
+                <p className="text-slate-500 leading-relaxed">
+                  Los proyectos de Vibe Coding estarán disponibles pronto. Stay tuned!
+                </p>
               </div>
-          
-              </div>
+            </div>
+          )}
         </div>
       </section>
 
@@ -485,7 +528,7 @@ export default function Portfolio() {
               Stack Tecnológico
             </span>
           </h2>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
               <div className="flex items-center gap-3 mb-4">
@@ -597,20 +640,20 @@ export default function Portfolio() {
           <p className="text-xl text-slate-300 mb-12">
             Estoy abierto a oportunidades junior, prácticas y proyectos en IA, Big Data y desarrollo Full Stack
           </p>
-          
+
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             <a href="mailto:ikermunozherrero@gmail.com" className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
               <Mail size={32} className="mx-auto mb-4 text-cyan-400" />
               <h3 className="font-semibold mb-2">Email</h3>
               <p className="text-sm text-slate-400">ikermunozherrero@gmail.com</p>
             </a>
-            
+
             <a href="https://www.linkedin.com/in/iker-muñoz-herrero" target="_blank" rel="noopener noreferrer" className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
               <Linkedin size={32} className="mx-auto mb-4 text-cyan-400" />
               <h3 className="font-semibold mb-2">LinkedIn</h3>
               <p className="text-sm text-slate-400">iker-muñoz-herrero</p>
             </a>
-            
+
             <a href="https://github.com/IkerMunozz" target="_blank" rel="noopener noreferrer" className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
               <Github size={32} className="mx-auto mb-4 text-cyan-400" />
               <h3 className="font-semibold mb-2">GitHub</h3>
