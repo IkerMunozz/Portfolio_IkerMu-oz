@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, MapPin, Code2, Database, Brain, Server, Globe, ChevronDown, Eye, Settings  } from 'lucide-react';
+import Chatbot from './Chatbot';
 import fotoPerfil from '../assets/images/foto-perfil.png';
 import swappy1 from '../assets/images/swappy1.png';
 import swappy2 from '../assets/images/swappy2.png';
@@ -674,6 +675,8 @@ export default function Portfolio() {
           <p>© 2025 Iker Muñoz Herrero. Desarrollado con React</p>
         </div>
       </footer>
+
+      <Chatbot />
     </div>
   );
 }
