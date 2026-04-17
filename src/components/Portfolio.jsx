@@ -7,6 +7,10 @@ import swappy2 from '../assets/images/swappy2.png';
 import swappy3 from '../assets/images/swappy3.png';
 import swappy4 from '../assets/images/swappy4.png';
 import deteccion from '../assets/images/deteccion_vehiculos.png';
+import imagenZalando from '../assets/images/imagen_zalando.png';
+import analiticaZalando from '../assets/images/analitica_zalando.png';
+import historialZalando from '../assets/images/historial_zalando.png';
+import inventarioZalando from '../assets/images/inventario_zalando.png';
 export default function Portfolio() {
   //const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
@@ -510,15 +514,88 @@ export default function Portfolio() {
           )}
 
           {activeTab === 'vibecoding' && (
-            <div className="bg-slate-800/30 backdrop-blur-sm rounded-2xl border border-dashed border-slate-700/50 p-8 sm:p-16 text-center">
-              <div className="max-w-md mx-auto space-y-4">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-slate-700/50 rounded-full flex items-center justify-center">
-                  <Code2 size={24} className="sm:w-7 sm:h-7 text-slate-500" />
+            <div className="space-y-16">
+              <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 shadow-2xl">
+                <div className="flex flex-col md:grid md:grid-cols-2">
+                  <div className="p-4 sm:p-6 lg:p-8 space-y-4 sm:space-y-6">
+                    <div className="flex items-center gap-2 sm:gap-3">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg flex items-center justify-center">
+                        <Brain size={20} className="sm:w-6 sm:h-6" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold">Zalando Size Exchange Automator</h3>
+                        <p className="text-xs sm:text-sm text-cyan-400 font-semibold mt-0.5">Full-Stack • AI Integration</p>
+                      </div>
+                    </div>
+
+                    <p className="text-slate-300 leading-relaxed text-sm sm:text-base lg:text-lg">
+                      Plataforma full-stack que automatiza el proceso de cambios de talla en e-commerce mediante <span className="text-cyan-400 font-semibold">Inteligencia Artificial</span>. Integra un chatbot inteligente con Gemini, validación en tiempo real y automatización de logística, reduciendo la carga operativa mientras mejora la experiencia del cliente en entornos de producción real.
+                    </p>
+
+                    <div className="space-y-3 sm:space-y-4">
+                      <h4 className="text-lg sm:text-xl font-semibold text-cyan-400">Características Principales</h4>
+                      <ul className="space-y-2 sm:space-y-3 text-slate-300">
+                        <li className="flex items-start gap-3">
+                          <Brain className="text-cyan-400 mt-1 flex-shrink-0" size={18} />
+                          <span className="text-sm sm:text-base"><span className="font-semibold text-white">Chatbot Inteligente:</span> Integración con Google Gemini para detectar intenciones y extraer datos de pedidos automáticamente</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <Database className="text-cyan-400 mt-1 flex-shrink-0" size={18} />
+                          <span className="text-sm sm:text-base"><span className="font-semibold text-white">Validación en Tiempo Real:</span> Verificación de stock, plazos de devolución y estado de pedidos con manejo de excepciones empresariales</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <Settings className="text-cyan-400 mt-1 flex-shrink-0" size={18} />
+                          <span className="text-sm sm:text-base"><span className="font-semibold text-white">Automatización Logística:</span> Generación automática de etiquetas de devolución (RMA) y creación de nuevos pedidos</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <Globe className="text-cyan-400 mt-1 flex-shrink-0" size={18} />
+                          <span className="text-sm sm:text-base"><span className="font-semibold text-white">Panel de Control:</span> Monitorización en vivo de inventario, logs del sistema e indicadores de excepción</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <Code2 className="text-cyan-400 mt-1 flex-shrink-0" size={18} />
+                          <span className="text-sm sm:text-base"><span className="font-semibold text-white">API REST:</span> Endpoints bien estructurados para gestión de inventario, logs y procesamiento de solicitudes</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div className="space-y-2 sm:space-y-3">
+                      <h4 className="text-lg sm:text-xl font-semibold text-cyan-400">Stack Tecnológico</h4>
+                      <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                        {['React', 'Vite', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Express', 'Google Gemini SDK', 'Framer Motion', 'API REST'].map(tech => (
+                          <span key={tech} className="px-2 py-0.5 sm:px-3 sm:py-1 bg-slate-700/50 rounded-lg text-xs sm:text-sm border border-slate-600/50 hover:border-cyan-500/50 transition-colors">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="space-y-2 sm:space-y-3">
+                      <h4 className="text-lg sm:text-xl font-semibold text-cyan-400">Resultados</h4>
+                      <ul className="space-y-1.5 sm:space-y-2 text-slate-300 text-sm sm:text-base">
+                        <li>✓ IA aplicada a logística: Chatbot inteligente con comprensión de contexto empresarial</li>
+                        <li>✓ Automatización de procesos: Reducción de carga operativa mediante APIs y workflows inteligentes</li>
+                        <li>✓ Manejo robusto de excepciones: Validaciones complejas (stock, plazos, duplicidades)</li>
+                        <li>✓ Full-stack profesional: Arquitectura escalable ready para producción</li>
+                      </ul>
+                    </div>
+
+                    <div className="flex gap-3 sm:gap-4 pt-2 sm:pt-4">
+                      <a href="https://github.com/ikerfedeto/Soporte_zalando" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-lg font-semibold text-sm sm:text-base hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300">
+                        <Github size={18} />
+                        Ver Código
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="bg-slate-900 p-2 sm:p-4 flex flex-col gap-2 sm:gap-3">
+                    <img src={imagenZalando} alt="Zalando - Dashboard Principal" className="rounded-lg border border-slate-700 hover:border-cyan-500/50 transition-all duration-300 w-full h-auto" />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+                      <img src={analiticaZalando} alt="Zalando - Analítica" className="w-full h-auto rounded-lg border border-slate-700 hover:border-cyan-500/50 transition-all duration-300" />
+                      <img src={historialZalando} alt="Zalando - Historial" className="w-full h-auto rounded-lg border border-slate-700 hover:border-cyan-500/50 transition-all duration-300" />
+                    </div>
+                    <img src={inventarioZalando} alt="Zalando - Inventario" className="rounded-lg border border-slate-700 hover:border-cyan-500/50 transition-all duration-300 w-full h-auto" />
+                  </div>
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-400">Próximamente</h3>
-                <p className="text-slate-500 leading-relaxed text-sm sm:text-base">
-                  Los proyectos de Vibe Coding estarán disponibles pronto. Stay tuned!
-                </p>
               </div>
             </div>
           )}
