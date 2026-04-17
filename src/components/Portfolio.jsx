@@ -1,20 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, MapPin, Code2, Database, Brain, Server, Globe, ChevronDown, Eye, Settings  } from 'lucide-react';
+import { Github, Linkedin, Mail, MapPin, Code2, Database, Brain, Server, Globe, ChevronDown, Eye, Settings, X  } from 'lucide-react';
 import Chatbot from './Chatbot';
+import GlowCard from './ui/GlowCard';
 import fotoPerfil from '../assets/images/foto-perfil.png';
 import swappy1 from '../assets/images/swappy1.png';
 import swappy2 from '../assets/images/swappy2.png';
 import swappy3 from '../assets/images/swappy3.png';
 import swappy4 from '../assets/images/swappy4.png';
-import deteccion from '../assets/images/deteccion_vehiculos.png';
 import imagenZalando from '../assets/images/imagen_zalando.png';
 import analiticaZalando from '../assets/images/analitica_zalando.png';
 import historialZalando from '../assets/images/historial_zalando.png';
 import inventarioZalando from '../assets/images/inventario_zalando.png';
+import portada_yolov8 from '../assets/images/portada_yolov8.webp';
+import portada_analisistrafico from '../assets/images/portada_analisistrafico.png';
+import deteccion from '../assets/images/deteccion_vehiculos.png';
 export default function Portfolio() {
   //const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeTab, setActiveTab] = useState('proyectos');
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,6 +34,113 @@ export default function Portfolio() {
     element?.scrollIntoView({ behavior: 'smooth' });
     //setActiveSection(id);
   };
+
+  const openProjectModal = (project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const closeProjectModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+  };
+
+  const projectsData = [
+    {
+      id: 'swappy',
+      title: 'Swappy',
+      shortDescription: 'Plataforma de compraventa con IA para validación automática de imágenes',
+      coverImage: swappy1,
+      icon: Code2,
+      fullDescription: 'Plataforma web de compraventa de productos de segunda mano que integra Inteligencia Artificial para validación automática de imágenes y geolocalización para optimizar envíos.',
+      features: [
+        { icon: Brain, text: 'Validación con IA: Sistema automático con YOLOv8 que detecta objetos en imágenes, garantizando la calidad de las publicaciones' },
+        { icon: MapPin, text: 'Geolocalización: Mapa interactivo con Leaflet que muestra oficinas de Correos cercanas en tiempo real' },
+        { icon: Globe, text: 'Interfaz Intuitiva: Diseño responsive y experiencia de usuario optimizada para facilitar compras y ventas' }
+      ],
+      stack: ['Java', 'Spring Boot', 'MySQL', 'Python', 'YOLOv8', 'HTML', 'CSS', 'JavaScript', 'Thymeleaf', 'Leaflet', 'Docker', 'Railway'],
+      results: [
+        'Valoración de usuarios: 4-5/5',
+        'Validación exitosa de imágenes con alta precisión',
+        'Despliegue en producción con Docker y Railway'
+      ],
+      githubUrl: 'https://github.com/IkerMunozz/TFC',
+      images: [swappy1, swappy2, swappy3, swappy4]
+    },
+    {
+      id: 'yolo-custom',
+      title: 'Custom Object Detection (YOLOv8)',
+      shortDescription: 'Sistema avanzado de visión por computador con fine-tuning personalizado',
+      coverImage: portada_yolov8,
+      icon: Brain,
+      fullDescription: 'Sistema avanzado de visión por computador basado en YOLOv8, enfocado en la detección personalizada de objetos mediante fine-tuning y arquitectura multi-modelo.',
+      features: [
+        { icon: Brain, text: 'Fine-tuning personalizado: Entrenamiento específico de YOLOv8 para añadir una nueva clase mediante anotación y adaptación de dataset' },
+        { icon: Code2, text: 'Arquitectura multi-modelo: Integración simultánea de dos modelos para evitar catastrophic forgetting' },
+        { icon: Eye, text: 'Detección en tiempo real: Procesamiento de vídeo en vivo con OpenCV, combinando resultados de ambos modelos' },
+        { icon: Settings, text: 'Pipeline completo: Preparación de dataset, corrección de etiquetas y optimización de inferencia' }
+      ],
+      stack: ['Python', 'YOLOv8', 'PyTorch', 'OpenCV', 'Computer Vision', 'Deep Learning', 'Object Detection', 'Fine-tuning', 'Dataset Annotation'],
+      results: [
+        'Detección precisa de objetos personalizados',
+        'Preservación de detección COCO mediante arquitectura multi-modelo',
+        'Sistema de detección en tiempo real funcional en CPU',
+        'Experiencia práctica en Continual Learning'
+      ],
+      githubUrl: 'https://github.com/IkerMunozz',
+      images: ['/videos/VideoDemostracion.mp4']
+    },
+    {
+      id: 'traffic-analysis',
+      title: 'Traffic Flow Analysis & Prediction',
+      shortDescription: 'Sistema de análisis y predicción de tráfico urbano con Machine Learning',
+      coverImage: portada_analisistrafico,
+      icon: Database,
+      fullDescription: 'Sistema de análisis y predicción de tráfico urbano mediante técnicas de Machine Learning y análisis de datos, enfocado en la identificación de patrones temporales.',
+      features: [
+        { icon: Database, text: 'Análisis Exploratorio: Limpieza, transformación y visualización de datos para identificar patrones de tráfico' },
+        { icon: Brain, text: 'Modelado Predictivo: Entrenamiento y evaluación de modelos de Machine Learning para estimar niveles de congestión' },
+        { icon: Globe, text: 'Visualización de Resultados: Representación gráfica de tendencias y comparación entre valores reales y predichos' },
+        { icon: Settings, text: 'Pipeline Completo: Preprocesamiento, división train/test, entrenamiento, validación y análisis de métricas' }
+      ],
+      stack: ['Python', 'Pandas', 'NumPy', 'Matplotlib', 'Scikit-learn', 'Machine Learning', 'Data Analysis', 'Regression', 'Time Series'],
+      results: [
+        'Identificación clara de patrones de congestión por franja horaria',
+        'Modelo predictivo con buena capacidad de generalización',
+        'Aplicación práctica de técnicas de regresión y análisis temporal',
+        'Experiencia sólida en interpretación de métricas (MAE, RMSE, R²)'
+      ],
+      githubUrl: 'https://github.com/IkerMunozz/Modelo_AnalisisTrafico',
+      images: [deteccion, '/videos/Video_deteccion.mp4']
+    }
+  ];
+
+  const vibecodingProjects = [
+    {
+      id: 'zalando',
+      title: 'Zalando Size Exchange Automator',
+      shortDescription: 'Automatización de cambios de talla en e-commerce con IA integrada',
+      coverImage: imagenZalando,
+      icon: Brain,
+      fullDescription: 'Plataforma full-stack que automatiza el proceso de cambios de talla en e-commerce mediante Inteligencia Artificial. Integra un chatbot inteligente con Gemini, validación en tiempo real y automatización de logística.',
+      features: [
+        { icon: Brain, text: 'Chatbot Inteligente: Integración con Google Gemini para detectar intenciones y extraer datos de pedidos automáticamente' },
+        { icon: Database, text: 'Validación en Tiempo Real: Verificación de stock, plazos de devolución y estado de pedidos con manejo de excepciones' },
+        { icon: Settings, text: 'Automatización Logística: Generación automática de etiquetas de devolución (RMA) y creación de nuevos pedidos' },
+        { icon: Globe, text: 'Panel de Control: Monitorización en vivo de inventario, logs del sistema e indicadores de excepción' },
+        { icon: Code2, text: 'API REST: Endpoints bien estructurados para gestión de inventario, logs y procesamiento de solicitudes' }
+      ],
+      stack: ['React', 'Vite', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Express', 'Google Gemini SDK', 'Framer Motion', 'API REST'],
+      results: [
+        'IA aplicada a logística: Chatbot inteligente con comprensión de contexto empresarial',
+        'Automatización de procesos: Reducción de carga operativa mediante APIs y workflows inteligentes',
+        'Manejo robusto de excepciones: Validaciones complejas (stock, plazos, duplicidades)',
+        'Full-stack profesional: Arquitectura escalable ready para producción'
+      ],
+      githubUrl: 'https://github.com/ikerfedeto/Soporte_zalando',
+      images: [imagenZalando, analiticaZalando, historialZalando, inventarioZalando]
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
@@ -213,390 +325,60 @@ export default function Portfolio() {
           </div>
 
           {activeTab === 'proyectos' && (
-          <div className="space-y-16">
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 shadow-2xl mb-8 sm:mb-16">
-            <div className="flex flex-col md:grid md:grid-cols-2">
-              <div className="p-4 sm:p-6 lg:p-8 space-y-4 sm:space-y-6">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg flex items-center justify-center">
-                    <Code2 size={20} className="sm:w-6 sm:h-6" />
-                  </div>
-                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold">Swappy</h3>
-                </div>
-
-                <p className="text-slate-300 leading-relaxed text-sm sm:text-base lg:text-lg">
-                  Plataforma web de compraventa de productos de segunda mano que integra <span className="text-cyan-400 font-semibold">Inteligencia Artificial</span> para validación automática de imágenes y geolocalización para optimizar envíos.
-                </p>
-
-                <div className="space-y-3 sm:space-y-4">
-                  <h4 className="text-lg sm:text-xl font-semibold text-cyan-400">Características Principales</h4>
-                  <ul className="space-y-2 sm:space-y-3 text-slate-300">
-                    <li className="flex items-start gap-3">
-                      <Brain className="text-cyan-400 mt-1 flex-shrink-0" size={18} />
-                      <span className="text-sm sm:text-base"><span className="font-semibold text-white">Validación con IA:</span> Sistema automático con YOLOv8 que detecta objetos en imágenes, garantizando la calidad de las publicaciones</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <MapPin className="text-cyan-400 mt-1 flex-shrink-0" size={18} />
-                      <span className="text-sm sm:text-base"><span className="font-semibold text-white">Geolocalización:</span> Mapa interactivo con Leaflet que muestra oficinas de Correos cercanas en tiempo real</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <Globe className="text-cyan-400 mt-1 flex-shrink-0" size={18} />
-                      <span className="text-sm sm:text-base"><span className="font-semibold text-white">Interfaz Intuitiva:</span> Diseño responsive y experiencia de usuario optimizada para facilitar compras y ventas</span>
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="space-y-2 sm:space-y-3">
-                  <h4 className="text-lg sm:text-xl font-semibold text-cyan-400">Stack Tecnológico</h4>
-                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                    {['Java', 'Spring Boot', 'MySQL', 'Python', 'YOLOv8', 'HTML', 'CSS', 'JavaScript', 'Thymeleaf', 'Leaflet', 'Docker', 'Railway'].map(tech => (
-                      <span key={tech} className="px-2 py-0.5 sm:px-3 sm:py-1 bg-slate-700/50 rounded-lg text-xs sm:text-sm border border-slate-600/50 hover:border-cyan-500/50 transition-colors">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="space-y-2 sm:space-y-3">
-                  <h4 className="text-lg sm:text-xl font-semibold text-cyan-400">Resultados</h4>
-                  <ul className="space-y-1.5 sm:space-y-2 text-slate-300 text-sm sm:text-base">
-                    <li>✓ Valoración de usuarios: <span className="font-semibold text-white">4-5/5</span></li>
-                    <li>✓ Validación exitosa de imágenes con <span className="font-semibold text-white">alta precisión</span></li>
-                    <li>✓ Despliegue en producción con <span className="font-semibold text-white">Docker y Railway</span></li>
-                  </ul>
-                </div>
-
-                <div className="flex gap-3 sm:gap-4 pt-2 sm:pt-4">
-                  <a href="https://github.com/IkerMunozz/TFC" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-lg font-semibold text-sm sm:text-base hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300">
-                    <Github size={18} />
-                    Ver Código
-                  </a>
-                </div>
-              </div>
-
-              <div className="bg-slate-900 p-4 sm:p-6 flex flex-col gap-3 sm:gap-4">
-                <img src={swappy1} alt="Swappy - Inicio" className="rounded-lg border border-slate-700 hover:border-cyan-500/50 transition-all duration-300 w-full" />
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                  <img src={swappy2} alt="Swappy - Perfil" className="w-full rounded-lg border border-slate-700 hover:border-cyan-500/50 transition-all duration-300" />
-                  <img src={swappy3} alt="Swappy - Publicar" className="w-full rounded-lg border border-slate-700 hover:border-cyan-500/50 transition-all duration-300" />
-                </div>
-                <img src={swappy4} alt="Swappy - Mapa" className="rounded-lg border border-slate-700 hover:border-cyan-500/50 transition-all duration-300 w-full" />
-              </div>
-            </div>
-          </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700/50 hover:border-purple-500/50 transition-all duration-300 shadow-2xl mb-8 sm:mb-16">
-            <div className="flex flex-col md:grid md:grid-cols-2">
-
-              <div className="p-4 sm:p-6 lg:p-8 space-y-4 sm:space-y-6">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
-                    <Brain size={20} className="sm:w-6 sm:h-6" />
-                  </div>
-                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold">Custom Object Detection (YOLOv8)</h3>
-                </div>
-
-                <p className="text-slate-300 leading-relaxed text-sm sm:text-base lg:text-lg">
-                  Sistema avanzado de <span className="text-purple-400 font-semibold">visión por computador</span> basado en YOLOv8, enfocado en la detección personalizada de objetos (<span className="font-semibold text-white">keys</span>) mediante fine-tuning y arquitectura multi-modelo para preservar detección general COCO.
-                </p>
-
-                <div className="space-y-3 sm:space-y-4">
-                  <h4 className="text-lg sm:text-xl font-semibold text-purple-400">Características Principales</h4>
-                  <ul className="space-y-2 sm:space-y-3 text-slate-300">
-
-                    <li className="flex items-start gap-3">
-                      <Brain className="text-purple-400 mt-1 flex-shrink-0" size={18} />
-                      <span className="text-sm sm:text-base">
-                        <span className="font-semibold text-white">Fine-tuning personalizado:</span> Entrenamiento específico de YOLOv8 para añadir una nueva clase (<span className="text-white">keys</span>) mediante anotación y adaptación de dataset.
-                      </span>
-                    </li>
-
-                    <li className="flex items-start gap-3">
-                      <Code2 className="text-purple-400 mt-1 flex-shrink-0" size={18} />
-                      <span className="text-sm sm:text-base">
-                        <span className="font-semibold text-white">Arquitectura multi-modelo:</span> Integración simultánea de dos modelos (YOLOv8 COCO + modelo fine-tuned) para evitar <span className="italic">catastrophic forgetting</span>.
-                      </span>
-                    </li>
-
-                    <li className="flex items-start gap-3">
-                      <Eye className="text-purple-400 mt-1 flex-shrink-0" size={18} />
-                      <span className="text-sm sm:text-base">
-                        <span className="font-semibold text-white">Detección en tiempo real:</span> Procesamiento de vídeo en vivo con OpenCV, combinando resultados de ambos modelos en una única visualización.
-                      </span>
-                    </li>
-
-                    <li className="flex items-start gap-3">
-                      <Settings className="text-purple-400 mt-1 flex-shrink-0" size={18} />
-                      <span className="text-sm sm:text-base">
-                        <span className="font-semibold text-white">Pipeline completo:</span> Preparación de dataset, corrección de etiquetas, configuración multiplataforma (Windows/Linux) y optimización de inferencia.
-                      </span>
-                    </li>
-
-                  </ul>
-                </div>
-
-                <div className="space-y-2 sm:space-y-3">
-                  <h4 className="text-lg sm:text-xl font-semibold text-purple-400">Stack Tecnológico</h4>
-                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                    {['Python', 'YOLOv8', 'PyTorch', 'OpenCV', 'Computer Vision', 'Deep Learning', 'Object Detection', 'Fine-tuning', 'Dataset Annotation'].map(tech => (
-                      <span key={tech} className="px-2 py-0.5 sm:px-3 sm:py-1 bg-slate-700/50 rounded-lg text-xs sm:text-sm border border-slate-600/50 hover:border-purple-500/50 transition-colors">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="space-y-2 sm:space-y-3">
-                  <h4 className="text-lg sm:text-xl font-semibold text-purple-400">Resultados</h4>
-                  <ul className="space-y-1.5 sm:space-y-2 text-slate-300 text-sm sm:text-base">
-                    <li>Detección precisa de objetos personalizados (<span className="font-semibold text-white">keys</span>)</li>
-                    <li>Preservación de detección COCO mediante arquitectura multi-modelo</li>
-                    <li>Sistema de detección en tiempo real funcional en CPU</li>
-                    <li>Experiencia práctica en <span className="font-semibold text-white">Continual Learning</span> y limitaciones reales de fine-tuning</li>
-                  </ul>
-                </div>
-
-                <div className="flex gap-3 sm:gap-4 pt-2 sm:pt-4">
-                  <a href="https://github.com/IkerMunozz" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg font-semibold text-sm sm:text-base hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300">
-                    <Github size={18} />
-                    Ver Código
-                  </a>
-                </div>
-              </div>
-
-              <div className="bg-slate-900 p-4 sm:p-6 flex items-center justify-center">
-               <video
-                  src="/videos/VideoDemostracion.mp4"
-                  controls
-                  autoPlay
-                  loop
-                  muted
-                  className="w-full rounded-lg border border-slate-700"
-                />
-
-              </div>
-
-            </div>
-          </div>
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 shadow-2xl mb-8 sm:mb-16">
-              <div className="flex flex-col md:grid md:grid-cols-2">
-
-                <div className="p-4 sm:p-6 lg:p-8 space-y-4 sm:space-y-6">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg flex items-center justify-center">
-                      <Database size={20} className="sm:w-6 sm:h-6" />
-                    </div>
-                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold">Traffic Flow Analysis & Prediction</h3>
-                  </div>
-
-                  <p className="text-slate-300 leading-relaxed text-sm sm:text-base lg:text-lg">
-                    Sistema de análisis y predicción de tráfico urbano mediante técnicas de
-                    <span className="text-cyan-400 font-semibold"> Machine Learning </span>
-                    y análisis de datos, enfocado en la identificación de patrones temporales
-                    y la predicción de congestión a partir de datos reales.
-                  </p>
-
-                  <div className="space-y-3 sm:space-y-4">
-                    <h4 className="text-lg sm:text-xl font-semibold text-cyan-400">Características Principales</h4>
-                    <ul className="space-y-2 sm:space-y-3 text-slate-300">
-
-                      <li className="flex items-start gap-3">
-                        <Database className="text-cyan-400 mt-1 flex-shrink-0" size={18} />
-                        <span className="text-sm sm:text-base">
-                          <span className="font-semibold text-white">Análisis Exploratorio: </span>
-                          Limpieza, transformación y visualización de datos para identificar
-                          patrones de tráfico por franja horaria y día de la semana.
-                        </span>
-                      </li>
-
-                      <li className="flex items-start gap-3">
-                        <Brain className="text-cyan-400 mt-1 flex-shrink-0" size={18} />
-                        <span className="text-sm sm:text-base">
-                          <span className="font-semibold text-white">Modelado Predictivo: </span>
-                          Entrenamiento y evaluación de modelos de Machine Learning
-                          para estimar niveles de congestión futuros.
-                        </span>
-                      </li>
-
-                      <li className="flex items-start gap-3">
-                        <Globe className="text-cyan-400 mt-1 flex-shrink-0" size={18} />
-                        <span className="text-sm sm:text-base">
-                          <span className="font-semibold text-white">Visualización de Resultados: </span>
-                          Representación gráfica de tendencias y comparación entre
-                          valores reales y predichos.
-                        </span>
-                      </li>
-
-                      <li className="flex items-start gap-3">
-                        <Settings className="text-cyan-400 mt-1 flex-shrink-0" size={18} />
-                        <span className="text-sm sm:text-base">
-                          <span className="font-semibold text-white">Pipeline Completo: </span>
-                          Preprocesamiento, división train/test, entrenamiento,
-                          validación y análisis de métricas de rendimiento.
-                        </span>
-                      </li>
-
-                    </ul>
-                  </div>
-
-                  <div className="space-y-2 sm:space-y-3">
-                    <h4 className="text-lg sm:text-xl font-semibold text-cyan-400">Stack Tecnológico</h4>
-                    <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                      {[
-                        'Python',
-                        'Pandas',
-                        'NumPy',
-                        'Matplotlib',
-                        'Scikit-learn',
-                        'Machine Learning',
-                        'Data Analysis',
-                        'Regression',
-                        'Time Series'
-                      ].map(tech => (
-                        <span
-                          key={tech}
-                          className="px-2 py-0.5 sm:px-3 sm:py-1 bg-slate-700/50 rounded-lg text-xs sm:text-sm border border-slate-600/50 hover:border-cyan-500/50 transition-colors"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="space-y-2 sm:space-y-3">
-                    <h4 className="text-lg sm:text-xl font-semibold text-cyan-400">Resultados</h4>
-                    <ul className="space-y-1.5 sm:space-y-2 text-slate-300 text-sm sm:text-base">
-                      <li>Identificación clara de patrones de congestión por franja horaria</li>
-                      <li>Modelo predictivo con buena capacidad de generalización</li>
-                      <li>Aplicación práctica de técnicas de regresión y análisis temporal</li>
-                      <li>Experiencia sólida en interpretación de métricas (MAE, RMSE, R²)</li>
-                    </ul>
-                  </div>
-
-                  <div className="flex gap-3 sm:gap-4 pt-2 sm:pt-4">
-                    <a
-                      href="https://github.com/IkerMunozz/Modelo_AnalisisTrafico"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-lg font-semibold text-sm sm:text-base hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300"
-                    >
-                      <Github size={18} />
-                      Ver Código
-                    </a>
-                  </div>
-                </div>
-
-                <div className="bg-slate-900 p-4 sm:p-6 flex flex-col gap-4 sm:gap-6">
-
-                  <div className="w-full">
-                    <video
-                      src="/videos/Video_deteccion.mp4"
-                      controls
-                      autoPlay
-                      loop
-                      muted
-                      className="w-full rounded-lg border border-slate-700 hover:border-cyan-500/50 transition-all duration-300"
-                    />
-                  </div>
-
-                  <div className="w-full">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {projectsData.map((project) => (
+                <div
+                  key={project.id}
+                  onClick={() => openProjectModal(project)}
+                  className="bg-slate-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 shadow-xl hover:shadow-cyan-500/20 cursor-pointer group"
+                >
+                  <div className="aspect-video overflow-hidden">
                     <img
-                      src={deteccion}
-                      alt="Detección de objetos"
-                      className="w-full rounded-lg border border-slate-700 hover:border-cyan-500/50 transition-all duration-300"
+                      src={project.coverImage}
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-
+                  <div className="p-4 sm:p-6">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg flex items-center justify-center">
+                        <project.icon size={16} className="sm:w-5 sm:h-5" />
+                      </div>
+                      <h3 className="text-lg sm:text-xl font-bold group-hover:text-cyan-400 transition-colors">{project.title}</h3>
+                    </div>
+                    <p className="text-slate-300 text-sm sm:text-base leading-relaxed">{project.shortDescription}</p>
+                  </div>
                 </div>
-
-              </div>
+              ))}
             </div>
-          </div>
           )}
 
           {activeTab === 'vibecoding' && (
-            <div className="space-y-16">
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 shadow-2xl">
-                <div className="flex flex-col md:grid md:grid-cols-2">
-                  <div className="p-4 sm:p-6 lg:p-8 space-y-4 sm:space-y-6">
-                    <div className="flex items-center gap-2 sm:gap-3">
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg flex items-center justify-center">
-                        <Brain size={20} className="sm:w-6 sm:h-6" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold">Zalando Size Exchange Automator</h3>
-                        <p className="text-xs sm:text-sm text-cyan-400 font-semibold mt-0.5">Full-Stack • AI Integration</p>
-                      </div>
-                    </div>
-
-                    <p className="text-slate-300 leading-relaxed text-sm sm:text-base lg:text-lg">
-                      Plataforma full-stack que automatiza el proceso de cambios de talla en e-commerce mediante <span className="text-cyan-400 font-semibold">Inteligencia Artificial</span>. Integra un chatbot inteligente con Gemini, validación en tiempo real y automatización de logística, reduciendo la carga operativa mientras mejora la experiencia del cliente en entornos de producción real.
-                    </p>
-
-                    <div className="space-y-3 sm:space-y-4">
-                      <h4 className="text-lg sm:text-xl font-semibold text-cyan-400">Características Principales</h4>
-                      <ul className="space-y-2 sm:space-y-3 text-slate-300">
-                        <li className="flex items-start gap-3">
-                          <Brain className="text-cyan-400 mt-1 flex-shrink-0" size={18} />
-                          <span className="text-sm sm:text-base"><span className="font-semibold text-white">Chatbot Inteligente:</span> Integración con Google Gemini para detectar intenciones y extraer datos de pedidos automáticamente</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <Database className="text-cyan-400 mt-1 flex-shrink-0" size={18} />
-                          <span className="text-sm sm:text-base"><span className="font-semibold text-white">Validación en Tiempo Real:</span> Verificación de stock, plazos de devolución y estado de pedidos con manejo de excepciones empresariales</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <Settings className="text-cyan-400 mt-1 flex-shrink-0" size={18} />
-                          <span className="text-sm sm:text-base"><span className="font-semibold text-white">Automatización Logística:</span> Generación automática de etiquetas de devolución (RMA) y creación de nuevos pedidos</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <Globe className="text-cyan-400 mt-1 flex-shrink-0" size={18} />
-                          <span className="text-sm sm:text-base"><span className="font-semibold text-white">Panel de Control:</span> Monitorización en vivo de inventario, logs del sistema e indicadores de excepción</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <Code2 className="text-cyan-400 mt-1 flex-shrink-0" size={18} />
-                          <span className="text-sm sm:text-base"><span className="font-semibold text-white">API REST:</span> Endpoints bien estructurados para gestión de inventario, logs y procesamiento de solicitudes</span>
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div className="space-y-2 sm:space-y-3">
-                      <h4 className="text-lg sm:text-xl font-semibold text-cyan-400">Stack Tecnológico</h4>
-                      <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                        {['React', 'Vite', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Express', 'Google Gemini SDK', 'Framer Motion', 'API REST'].map(tech => (
-                          <span key={tech} className="px-2 py-0.5 sm:px-3 sm:py-1 bg-slate-700/50 rounded-lg text-xs sm:text-sm border border-slate-600/50 hover:border-cyan-500/50 transition-colors">
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="space-y-2 sm:space-y-3">
-                      <h4 className="text-lg sm:text-xl font-semibold text-cyan-400">Resultados</h4>
-                      <ul className="space-y-1.5 sm:space-y-2 text-slate-300 text-sm sm:text-base">
-                        <li>✓ IA aplicada a logística: Chatbot inteligente con comprensión de contexto empresarial</li>
-                        <li>✓ Automatización de procesos: Reducción de carga operativa mediante APIs y workflows inteligentes</li>
-                        <li>✓ Manejo robusto de excepciones: Validaciones complejas (stock, plazos, duplicidades)</li>
-                        <li>✓ Full-stack profesional: Arquitectura escalable ready para producción</li>
-                      </ul>
-                    </div>
-
-                    <div className="flex gap-3 sm:gap-4 pt-2 sm:pt-4">
-                      <a href="https://github.com/ikerfedeto/Soporte_zalando" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-lg font-semibold text-sm sm:text-base hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300">
-                        <Github size={18} />
-                        Ver Código
-                      </a>
-                    </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {vibecodingProjects.map((project) => (
+                <div
+                  key={project.id}
+                  onClick={() => openProjectModal(project)}
+                  className="bg-slate-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 shadow-xl hover:shadow-cyan-500/20 cursor-pointer group"
+                >
+                  <div className="aspect-video overflow-hidden">
+                    <img
+                      src={project.coverImage}
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
                   </div>
-
-                  <div className="bg-slate-900 p-2 sm:p-4 flex flex-col gap-2 sm:gap-3">
-                    <img src={imagenZalando} alt="Zalando - Dashboard Principal" className="rounded-lg border border-slate-700 hover:border-cyan-500/50 transition-all duration-300 w-full h-auto" />
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
-                      <img src={analiticaZalando} alt="Zalando - Analítica" className="w-full h-auto rounded-lg border border-slate-700 hover:border-cyan-500/50 transition-all duration-300" />
-                      <img src={historialZalando} alt="Zalando - Historial" className="w-full h-auto rounded-lg border border-slate-700 hover:border-cyan-500/50 transition-all duration-300" />
+                  <div className="p-4 sm:p-6">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg flex items-center justify-center">
+                        <project.icon size={16} className="sm:w-5 sm:h-5" />
+                      </div>
+                      <h3 className="text-lg sm:text-xl font-bold group-hover:text-cyan-400 transition-colors">{project.title}</h3>
                     </div>
-                    <img src={inventarioZalando} alt="Zalando - Inventario" className="rounded-lg border border-slate-700 hover:border-cyan-500/50 transition-all duration-300 w-full h-auto" />
+                    <p className="text-slate-300 text-sm sm:text-base leading-relaxed">{project.shortDescription}</p>
                   </div>
                 </div>
-              </div>
+              ))}
             </div>
           )}
         </div>
@@ -612,7 +394,7 @@ export default function Portfolio() {
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-5 lg:p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
+            <GlowCard glowColor="blue" customSize className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50">
               <div className="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-4">
                 <div className="p-2.5 sm:p-3 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg">
                   <Code2 size={20} className="sm:w-6 sm:h-6" />
@@ -626,9 +408,9 @@ export default function Portfolio() {
                 <p>• Leaflet (Mapas)</p>
                 <p>• Responsive Design</p>
               </div>
-            </div>
+            </GlowCard>
 
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-5 lg:p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
+            <GlowCard glowColor="blue" customSize className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50">
               <div className="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-4">
                 <div className="p-2.5 sm:p-3 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg">
                   <Server size={20} className="sm:w-6 sm:h-6" />
@@ -642,9 +424,9 @@ export default function Portfolio() {
                 <p>• Python</p>
                 <p>• Arquitectura MVC</p>
               </div>
-            </div>
+            </GlowCard>
 
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-5 lg:p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
+            <GlowCard glowColor="blue" customSize className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50">
               <div className="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-4">
                 <div className="p-2.5 sm:p-3 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg">
                   <Brain size={20} className="sm:w-6 sm:h-6" />
@@ -658,9 +440,9 @@ export default function Portfolio() {
                 <p>• Scikit-learn</p>
                 <p>• Computer Vision</p>
               </div>
-            </div>
+            </GlowCard>
 
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-5 lg:p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
+            <GlowCard glowColor="blue" customSize className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50">
               <div className="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-4">
                 <div className="p-2.5 sm:p-3 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg">
                   <Database size={20} className="sm:w-6 sm:h-6" />
@@ -674,9 +456,9 @@ export default function Portfolio() {
                 <p>• Diseño de BD</p>
                 <p>• Optimización</p>
               </div>
-            </div>
+            </GlowCard>
 
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-5 lg:p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
+            <GlowCard glowColor="blue" customSize className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50">
               <div className="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-4">
                 <div className="p-2.5 sm:p-3 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg">
                   <Server size={20} className="sm:w-6 sm:h-6" />
@@ -690,9 +472,9 @@ export default function Portfolio() {
                 <p>• Análisis de Datos</p>
                 <p>• Visualización</p>
               </div>
-            </div>
+            </GlowCard>
 
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-5 lg:p-6 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
+            <GlowCard glowColor="blue" customSize className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50">
               <div className="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-4">
                 <div className="p-2.5 sm:p-3 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg">
                   <Globe size={20} className="sm:w-6 sm:h-6" />
@@ -706,7 +488,7 @@ export default function Portfolio() {
                 <p>• Railway</p>
                 <p>• CI/CD</p>
               </div>
-            </div>
+            </GlowCard>
           </div>
         </div>
       </section>
@@ -758,6 +540,116 @@ export default function Portfolio() {
       </footer>
 
       <Chatbot />
+
+      {/* Project Modal */}
+      {isModalOpen && selectedProject && (
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={closeProjectModal}>
+          <div className="bg-slate-800/95 backdrop-blur-md rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-slate-700/50 shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            <div className="relative">
+              {/* Close Button */}
+              <button
+                onClick={closeProjectModal}
+                className="absolute top-4 right-4 z-10 w-10 h-10 bg-gradient-to-br from-cyan-500 to-teal-500 hover:from-cyan-400 hover:to-teal-400 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-cyan-500/50 group"
+                title="Cerrar"
+              >
+                <X size={22} className="text-white group-hover:rotate-90 transition-transform duration-300" />
+              </button>
+
+              {/* Modal Content */}
+              <div className="flex flex-col lg:grid lg:grid-cols-2">
+                {/* Left Side - Project Details */}
+                <div className="p-6 lg:p-8 space-y-6">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 lg:w-14 lg:h-14 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-xl flex items-center justify-center">
+                      <selectedProject.icon size={24} className="lg:w-7 lg:h-7" />
+                    </div>
+                    <div>
+                      <h2 className="text-2xl lg:text-3xl font-bold">{selectedProject.title}</h2>
+                      <p className="text-cyan-400 font-semibold text-sm lg:text-base mt-1">Proyecto Destacado</p>
+                    </div>
+                  </div>
+
+                  <p className="text-slate-300 leading-relaxed text-base lg:text-lg">
+                    {selectedProject.fullDescription}
+                  </p>
+
+                  <div className="space-y-4">
+                    <h4 className="text-xl font-semibold text-cyan-400">Características Principales</h4>
+                    <ul className="space-y-3 text-slate-300">
+                      {selectedProject.features.map((feature, index) => (
+                        <li key={index} className="flex items-start gap-3">
+                          <feature.icon className="text-cyan-400 mt-1 flex-shrink-0" size={20} />
+                          <span className="text-sm lg:text-base">{feature.text}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="space-y-3">
+                    <h4 className="text-xl font-semibold text-cyan-400">Stack Tecnológico</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedProject.stack.map(tech => (
+                        <span key={tech} className="px-3 py-1 bg-slate-700/50 rounded-lg text-sm border border-slate-600/50 hover:border-cyan-500/50 transition-colors">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="space-y-3">
+                    <h4 className="text-xl font-semibold text-cyan-400">Resultados</h4>
+                    <ul className="space-y-2 text-slate-300 text-sm lg:text-base">
+                      {selectedProject.results.map((result, index) => (
+                        <li key={index}>• {result}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {selectedProject.githubUrl && (
+                    <div className="pt-4">
+                      <a
+                        href={selectedProject.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300"
+                      >
+                        <Github size={20} />
+                        Ver Código
+                      </a>
+                    </div>
+                  )}
+                </div>
+
+                {/* Right Side - Images */}
+                <div className="bg-slate-900 p-6 flex flex-col gap-4">
+                  {selectedProject.images.map((media, index) => (
+                    media.includes('.mp4') || media.includes('video') ? (
+                      <video
+                        key={index}
+                        controls
+                        autoPlay
+                        loop
+                        muted
+                        className="w-full rounded-lg border border-slate-700 hover:border-cyan-500/50 transition-all duration-300"
+                      >
+                        <source src={media} type="video/mp4" />
+                        Tu navegador no soporta el elemento de video.
+                      </video>
+                    ) : (
+                      <img
+                        key={index}
+                        src={media}
+                        alt={`${selectedProject.title} - Imagen ${index + 1}`}
+                        className="rounded-lg border border-slate-700 hover:border-cyan-500/50 transition-all duration-300 w-full"
+                      />
+                    )
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
