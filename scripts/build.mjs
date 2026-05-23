@@ -27,6 +27,7 @@ try {
   }
 
   // 4. Build the React application
+  // We use node directly to execute react-scripts to avoid "Permission denied" on the binary symlink
   console.log('🏗️ Building React app...');
   execSync('npm run build', { stdio: 'inherit' });
 
