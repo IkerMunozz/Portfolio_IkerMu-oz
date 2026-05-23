@@ -1,4 +1,6 @@
 {
+  "buildCommand": "cd server && npm install && node preprocess.js && cp cv-text.json ../api/cv-text.json && cd .. && npm install && npm run build",
+  "outputDirectory": "build",
   "rewrites": [
     {
       "source": "/(.*)",
