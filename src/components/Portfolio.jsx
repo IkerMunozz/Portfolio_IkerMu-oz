@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, MapPin, Code2, Database, Brain, Server, Globe, ChevronDown, Eye, Settings, X  } from 'lucide-react';
+import { Github, Linkedin, Mail, MapPin, Code2, Database, Brain, Server, Globe, ChevronDown, Eye, Settings, X, MessageSquare  } from 'lucide-react';
 import Chatbot from './Chatbot';
 import GlowCard from './ui/GlowCard';
 import fotoPerfil from '../assets/images/foto-perfil.png';
@@ -14,10 +14,11 @@ import inventarioZalando from '../assets/images/inventario_zalando.png';
 import portada_yolov8 from '../assets/images/portada_yolov8.webp';
 import portada_analisistrafico from '../assets/images/portada_analisistrafico.png';
 import deteccion from '../assets/images/deteccion_vehiculos.png';
+import portada_chatbotwhatsapp from '../assets/images/portada_chatbotwhatsapp.png';
+import panelControl_chatbot from '../assets/images/panelControl_chatbot.png';
 export default function Portfolio() {
   //const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeTab, setActiveTab] = useState('proyectos');
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -45,7 +46,7 @@ export default function Portfolio() {
     setSelectedProject(null);
   };
 
-  const projectsData = [
+  const allProjects = [
     {
       id: 'swappy',
       title: 'Swappy',
@@ -112,10 +113,30 @@ export default function Portfolio() {
       ],
       githubUrl: 'https://github.com/IkerMunozz/Modelo_AnalisisTrafico',
       images: [deteccion, '/videos/Video_deteccion.mp4']
-    }
-  ];
-
-  const vibecodingProjects = [
+    },
+    {
+      id: 'hotel-chatbot',
+      title: 'Hotel Chatbot & Automation',
+      shortDescription: 'Sistema de atención al cliente automatizado con WhatsApp y panel de control real-time',
+      coverImage: portada_chatbotwhatsapp,
+      icon: MessageSquare,
+      fullDescription: 'Ecosistema de automatización para gestión hotelera que combina un chatbot inteligente en WhatsApp con un panel de administración centralizado. Optimiza la atención al cliente mediante IA y permite la intervención humana estratégica.',
+      features: [
+        { icon: Brain, text: 'Chatbot Inteligente: Respuesta automática a consultas frecuentes, gestión de reservas y recomendaciones turísticas personalizadas' },
+        { icon: Settings, text: 'Automatización con n8n: Workflows complejos para el flujo de mensajes, integración de APIs y lógica de negocio' },
+        { icon: Globe, text: 'Panel de Control: Interfaz en tiempo real para monitorizar chats y permitir que recepción tome el control manualmente' },
+        { icon: Mail, text: 'Sistema de Alertas: Notificaciones automáticas por correo electrónico ante quejas o solicitudes de intervención humana' }
+      ],
+      stack: ['n8n', 'Node.js', 'React', 'WhatsApp Business API', 'PostgreSQL', 'Tailwind CSS', 'SMTP/Email API'],
+      results: [
+        'Reducción del 70% en carga de consultas básicas en recepción',
+        'Tiempo de respuesta inmediato 24/7 para clientes',
+        'Mejora en la satisfacción del cliente mediante atención híbrida (IA + Humano)',
+        'Sistema de escalado eficiente para incidencias críticas'
+      ],
+      githubUrl: 'https://github.com/IkerMunozz/PanelControl_CasonadelaReyna',
+      images: [panelControl_chatbot]
+    },
     {
       id: 'zalando',
       title: 'Zalando Size Exchange Automator',
@@ -298,89 +319,32 @@ export default function Portfolio() {
             </span>
           </h2>
 
-          {/* Tabs Menu */}
-          <div className="flex justify-center mb-6 sm:mb-8 lg:mb-12">
-            <div className="inline-flex bg-slate-800/60 backdrop-blur-sm rounded-xl p-1 sm:p-1.5 border border-slate-700/50">
-              <button
-                onClick={() => setActiveTab('proyectos')}
-                className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 ${
-                  activeTab === 'proyectos'
-                    ? 'bg-gradient-to-r from-cyan-500 to-teal-500 text-white shadow-lg shadow-cyan-500/30'
-                    : 'text-slate-400 hover:text-white'
-                }`}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {allProjects.map((project) => (
+              <div
+                key={project.id}
+                onClick={() => openProjectModal(project)}
+                className="bg-slate-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 shadow-xl hover:shadow-cyan-500/20 cursor-pointer group"
               >
-                Proyectos
-              </button>
-              <button
-                onClick={() => setActiveTab('vibecoding')}
-                className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 ${
-                  activeTab === 'vibecoding'
-                    ? 'bg-gradient-to-r from-cyan-500 to-teal-500 text-white shadow-lg shadow-cyan-500/30'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                Vibe Coding
-              </button>
-            </div>
+                <div className="aspect-video overflow-hidden">
+                  <img
+                    src={project.coverImage}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-4 sm:p-6">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg flex items-center justify-center">
+                      <project.icon size={16} className="sm:w-5 sm:h-5" />
+                    </div>
+                    <h3 className="text-lg sm:text-xl font-bold group-hover:text-cyan-400 transition-colors">{project.title}</h3>
+                  </div>
+                  <p className="text-slate-300 text-sm sm:text-base leading-relaxed">{project.shortDescription}</p>
+                </div>
+              </div>
+            ))}
           </div>
-
-          {activeTab === 'proyectos' && (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {projectsData.map((project) => (
-                <div
-                  key={project.id}
-                  onClick={() => openProjectModal(project)}
-                  className="bg-slate-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 shadow-xl hover:shadow-cyan-500/20 cursor-pointer group"
-                >
-                  <div className="aspect-video overflow-hidden">
-                    <img
-                      src={project.coverImage}
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <div className="p-4 sm:p-6">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg flex items-center justify-center">
-                        <project.icon size={16} className="sm:w-5 sm:h-5" />
-                      </div>
-                      <h3 className="text-lg sm:text-xl font-bold group-hover:text-cyan-400 transition-colors">{project.title}</h3>
-                    </div>
-                    <p className="text-slate-300 text-sm sm:text-base leading-relaxed">{project.shortDescription}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-
-          {activeTab === 'vibecoding' && (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {vibecodingProjects.map((project) => (
-                <div
-                  key={project.id}
-                  onClick={() => openProjectModal(project)}
-                  className="bg-slate-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 shadow-xl hover:shadow-cyan-500/20 cursor-pointer group"
-                >
-                  <div className="aspect-video overflow-hidden">
-                    <img
-                      src={project.coverImage}
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <div className="p-4 sm:p-6">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg flex items-center justify-center">
-                        <project.icon size={16} className="sm:w-5 sm:h-5" />
-                      </div>
-                      <h3 className="text-lg sm:text-xl font-bold group-hover:text-cyan-400 transition-colors">{project.title}</h3>
-                    </div>
-                    <p className="text-slate-300 text-sm sm:text-base leading-relaxed">{project.shortDescription}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
         </div>
       </section>
 
