@@ -216,8 +216,8 @@ export default function Portfolio() {
                 Ver Proyectos
               </a>
               <a
-              href="/CV_Iker_Muñoz.pdf"
-              download="CV_Iker_Muñoz.pdf"
+              href="/CV_Iker_Munoz.pdf"
+              download="CV_Iker_Munoz.pdf"
               className="flex items-center justify-center gap-2 px-4 py-2.5 sm:px-6 sm:py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg font-semibold text-sm sm:text-base hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300"            >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
