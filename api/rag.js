@@ -163,65 +163,41 @@ function initRAG(sections) {
 
 // ─── Parse Portfolio.jsx for projects ────────────────────────────────────
 function extractProjectsFromPortfolio(portfolioSource) {
-  const projectsStart = portfolioSource.indexOf('id="projects"');
-  if (projectsStart === -1) return [];
+  const projectsMatch = portfolioSource.match(/const allProjects = \[(.*?)\];/s);
+  if (!projectsMatch) return [];
   
-  const projectsEnd = portfolioSource.indexOf('id="skills"', projectsStart);
-  if (projectsEnd === -1) return [];
+  const projectsText = projectsMatch[1];
+  const projectBlocks = projectsText.split(/id:\s*'[^']+',/g).slice(1);
+  const ids = Array.from(projectsText.matchAll(/id:\s*'([^']+)',/g)).map(m => m[1]);
   
-  const projectsSection = portfolioSource.slice(projectsStart, projectsEnd);
   const projects = [];
-  
-  const cardRegex = /<div className="bg-slate-800\/50.*?grid md:grid-cols-2 gap-0">/gs;
-  const cards = projectsSection.split(cardRegex);
-  
-  for (let i = 1; i < cards.length; i++) {
-    const card = cards[i];
+  for (let i = 0; i < projectBlocks.length; i++) {
+    const block = projectBlocks[i];
+    const id = ids[i];
     
-    const nameMatch = card.match(/<h3\s+className="text-3xl font-bold">\s*([^<]+?)\s*<\/h3>/);
-    if (!nameMatch) continue;
+    const titleMatch = block.match(/title:\s*'([^']+)',/);
+    const shortDescMatch = block.match(/shortDescription:\s*'([^']+)',/);
+    const githubMatch = block.match(/githubUrl:\s*'([^']+)',/);
     
-    const name = nameMatch[1].trim();
-    if (name.length > 60 || name.length < 2) continue;
+    const stackMatch = block.match(/stack:\s*\[(.*?)\]/s);
+    const stack = stackMatch ? stackMatch[1].split(',').map(s => s.trim().replace(/^['"]|['"]$/g, '')) : [];
     
-    const nameIndex = card.indexOf(nameMatch[0]);
-    const afterName = card.slice(nameIndex + nameMatch[0].length);
-    
-    const descMatch = afterName.match(/<p\s+className="text-slate-300[^"]*">\s*(.+?)\s*<\/p>/s);
-    let description = '';
-    if (descMatch) {
-      description = descMatch[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
-    }
-    
-    const stackHeading = afterName.indexOf('Stack Tecnol');
-    if (stackHeading === -1) continue;
-    
-    const afterStack = afterName.slice(stackHeading);
-    const arrayMatch = afterStack.match(/\[([\s\S]*?)\]\.map/);
-    const techs = [];
-    if (arrayMatch) {
-      const items = arrayMatch[1]
-        .split(',')
-        .map(s => s.trim().replace(/^['"]|['"]$/g, ''))
-        .filter(s => s.length > 1 && s.length < 30);
-      techs.push(...items);
-    }
-    
+    const featuresMatch = block.match(/features:\s*\[(.*?)\]/s);
     const features = [];
-    const featureRegex = /<span[^>]*>\s*<span[^>]*>([^<]+)<\/span>:\s*(.+?)<\/span>\s*<\/li>/gs;
-    let featureMatch;
-    while ((featureMatch = featureRegex.exec(card)) !== null) {
-      const title = featureMatch[1].trim();
-      const desc = featureMatch[2].replace(/<[^>]+>/g, '').trim();
-      if (title.length > 5 && desc.length > 10) {
-        features.push(`${title}: ${desc}`);
-      }
+    if (featuresMatch) {
+      const featureTexts = Array.from(featuresMatch[1].matchAll(/text:\s*'([^']+)'/g)).map(m => m[1]);
+      features.push(...featureTexts);
     }
-    
-    const githubMatch = card.match(/href="(https:\/\/github\.com\/[^"]+)"/);
-    const github = githubMatch ? githubMatch[1] : null;
-    
-    projects.push({ name, description, stack: [...new Set(techs)], features, github });
+
+    if (titleMatch) {
+      projects.push({
+        name: titleMatch[1],
+        description: shortDescMatch ? shortDescMatch[1] : '',
+        stack,
+        features,
+        github: githubMatch ? githubMatch[1] : null
+      });
+    }
   }
   
   return projects;

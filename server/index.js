@@ -106,22 +106,17 @@ function generateResponse(query, context, retrieved) {
 
   // ── Skills queries ──
   if (/skill|tecnolog|stack|lenguaj|framework|herramient|competenc|sabe|conoc/i.test(q)) {
-    const skillChunks = retrieved.filter(r => r.section === 'skills');
-    if (skillChunks.length === 0) return 'No encuentro información detallada sobre sus skills.';
-    
-    let resp = 'Stack tecnológico:\n\n';
-    resp += '- Lenguajes: Java, JavaScript, Python, HTML, CSS\n';
-    resp += '- Frameworks: Spring Boot, React, Tailwind CSS\n';
-    resp += '- IA/ML: TensorFlow, PyTorch, YOLOv8, Keras, Scikit-learn\n';
-    resp += '- Big Data: Apache Spark, Hadoop, Streamlit\n';
-    resp += '- Bases de datos: MySQL, PostgreSQL, MongoDB\n';
-    resp += '- DevOps: Docker, Git, REST APIs';
-    
-    return resp.trim();
+    return 'Stack tecnológico:\n\n' +
+      '- Lenguajes: Java, JavaScript, Python, HTML, CSS\n' +
+      '- Frameworks: Spring Boot, React, Tailwind CSS, Node.js, Express\n' +
+      '- IA/ML: TensorFlow, PyTorch, YOLOv8, Gemini 2.5 Flash, Scikit-learn\n' +
+      '- Big Data: Apache Spark, Hadoop, Cloudera, Grafana\n' +
+      '- Bases de datos: MySQL, PostgreSQL, MongoDB\n' +
+      '- DevOps & Tools: Docker, Git, n8n, Railway, Linux';
   }
 
   // ── Projects queries ──
-  if (/proyect|app|web|swappy|yolo|trafico|traffic|portfolio|portfolio|tfc/i.test(q)) {
+  if (/proyect|app|web|swappy|yolo|trafico|traffic|portfolio|portfolio|tfc|reseñas|review|zalando/i.test(q)) {
     // Use portfolio.jsx data if available
     if (ragData.projects && ragData.projects.length > 0) {
       let resp = 'Proyectos destacados:\n\n';
@@ -135,28 +130,21 @@ function generateResponse(query, context, retrieved) {
       return resp.trim();
     }
     
-    // Fallback to CV data
-    const projChunks = retrieved.filter(r => r.section === 'projects');
-    if (projChunks.length === 0) return 'No encuentro información detallada sobre sus proyectos.';
-    
-    let resp = 'Proyectos destacados:\n\n';
-    resp += '- Swappy: Plataforma de compraventa con IA (YOLOv8) para validación de imágenes y geolocalización con Leaflet. Stack: Java, Spring Boot, Python, Docker.\n';
-    resp += '- Custom Object Detection (YOLOv8): Fine-tuning de YOLOv8 para detección personalizada con arquitectura multi-modelo.\n';
-    resp += '- Traffic Flow Analysis: Análisis y predicción de tráfico urbano con Python y Machine Learning.\n';
-    resp += '- Generador de conversaciones sintéticas: Sistema NLP con Python para crear conversaciones simuladas.\n';
-    resp += '- Portfolio: Este portfolio en React (portfolio-iker-mu-oz.vercel.app)';
-    
-    return resp.trim();
+    return 'Proyectos destacados:\n\n' +
+      '- AI Google Reviews Automation: Sistema autónomo con Gemini 2.5 Flash y n8n para gestionar reseñas multidioma.\n' +
+      '- Hotel Chatbot & Automation: Ecosistema con WhatsApp y panel de control React para gestión hotelera.\n' +
+      '- Zalando Size Exchange Automator: Automatización de cambios de talla con IA integrada (Gemini SDK).\n' +
+      '- Swappy: Marketplace con validación de imágenes por IA (YOLOv8) y geolocalización.\n' +
+      '- Traffic Flow Analysis: Análisis y predicción de tráfico urbano con Machine Learning.\n' +
+      '- Custom Object Detection (YOLOv8): Fine-tuning para detección personalizada de objetos.';
   }
 
   // ── Education queries ──
   if (/formaci|educ|estudio|grado|curs|certif|ies|univers|escuela/i.test(q)) {
-    let resp = 'Formación:\n\n';
-    resp += '- Especialización IA y Big Data (2025–2026) — IES Ribera del Tajo\n';
-    resp += '- Técnico Superior en Desarrollo Web (2023–2025) — IES Azarquiel, Toledo\n';
-    resp += '- Bachillerato Tecnológico (2021–2023) — IES Juan de Lucena';
-    
-    return resp.trim();
+    return 'Formación:\n\n' +
+      '- Especialización en IA y Big Data (2025–2026) — IES Ribera del Tajo\n' +
+      '- Técnico Superior en Desarrollo de Aplicaciones Web (2023–2025) — IES Azarquiel, Toledo\n' +
+      '- Bachillerato Tecnológico (2021–2023) — IES Juan de Lucena';
   }
 
   // ── About / who is ──
