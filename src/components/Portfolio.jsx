@@ -473,10 +473,10 @@ export default function Portfolio() {
                 <h3 className="text-base sm:text-lg lg:text-xl font-bold">DevOps & Tools</h3>
               </div>
               <div className="space-y-1.5 sm:space-y-2 text-slate-300 text-sm sm:text-base">
-                <p>• Docker</p>
+                <p>• Docker & Linux</p>
                 <p>• Git & GitHub</p>
-                <p>• Linux</p>
-                <p>• Railway</p>
+                <p>• n8n (Automatización)</p>
+                <p>• Railway & Vercel</p>
                 <p>• CI/CD</p>
               </div>
             </GlowCard>
