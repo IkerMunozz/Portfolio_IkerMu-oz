@@ -74,7 +74,6 @@ function generateResponse(query, context, retrieved, projects) {
         if (p.description) resp += `: ${p.description}`;
         if (p.stack && p.stack.length > 0) resp += ` [${p.stack.join(', ')}]`;
         resp += '\n';
-        if (p.github) resp += `  GitHub: ${p.github}\n`;
       }
       return resp.trim();
     }
