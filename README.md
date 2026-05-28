@@ -207,6 +207,13 @@ Toledo, España
 
 ##  Proyectos Destacados
 
+### AI Google Reviews Automation - Gestión de Reseñas con IA
+Sistema autónomo que gestiona reseñas en Google My Business, respondiendo de forma personalizada en el idioma del cliente y manteniendo el tono histórico de la marca mediante Gemini 2.5 Flash y n8n.
+
+**Tecnologías**: n8n, Google My Business API, Google Sheets, Gemini 2.5 Flash, JavaScript
+
+**Repositorio**: [github.com/IkerMunozz](https://github.com/IkerMunozz)
+
 ### Swappy - Plataforma de Compraventa con IA
 Aplicación web de segunda mano con validación automática de imágenes mediante YOLOv8 y geolocalización de oficinas de Correos.
 

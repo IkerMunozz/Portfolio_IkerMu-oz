@@ -15,7 +15,11 @@ import portada_yolov8 from '../assets/images/portada_yolov8.webp';
 import portada_analisistrafico from '../assets/images/portada_analisistrafico.png';
 import deteccion from '../assets/images/deteccion_vehiculos.png';
 import portada_chatbotwhatsapp from '../assets/images/portada_chatbotwhatsapp.png';
-import panelControl_chatbot from '../assets/images/panelControl_chatbot.png';
+import captura1_panel from '../assets/images/Captura1_panel.png';
+import captura2_panel from '../assets/images/Captura2_panel.png';
+import captura3_panel from '../assets/images/Captura3_panel.png';
+import flujoChatbot from '../assets/images/Flujo_ChatBotWhatsapp.png';
+import flujoResenas from '../assets/images/Flujo_Reseñas.png';
 export default function Portfolio() {
   //const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
@@ -135,7 +139,30 @@ export default function Portfolio() {
         'Sistema de escalado eficiente para incidencias críticas'
       ],
       githubUrl: 'https://github.com/IkerMunozz/PanelControl_CasonadelaReyna',
-      images: [panelControl_chatbot]
+      images: [captura1_panel, captura2_panel, captura3_panel, flujoChatbot]
+    },
+    {
+      id: 'google-reviews-automation',
+      title: 'AI Google Reviews Automation',
+      shortDescription: 'Sistema autónomo de gestión de reseñas con Gemini 2.5 Flash y n8n',
+      coverImage: flujoResenas,
+      icon: MessageSquare,
+      fullDescription: 'Sistema de automatización inteligente para la gestión de reseñas en Google My Business. El sistema detecta nuevas reseñas, analiza el sentimiento y el idioma, y genera respuestas personalizadas manteniendo el estilo histórico de la marca.',
+      features: [
+        { icon: Brain, text: 'Personalización con IA: Uso de Gemini 2.5 Flash con contexto de las últimas 20 respuestas para mantener un tono coherente' },
+        { icon: Globe, text: 'Soporte Multidioma: Detección y respuesta automática en el idioma del cliente (Inglés, Francés, Alemán, etc.)' },
+        { icon: Database, text: 'Control de Historial: Integración con Google Sheets para evitar duplicidades y mantener un registro de interacciones' },
+        { icon: Settings, text: 'Lógica Segmentada: Flujos diferenciados según la puntuación (1-5 ★) para una gestión de reputación óptima' }
+      ],
+      stack: ['n8n', 'Google My Business API', 'Google Sheets', 'Gemini 2.5 Flash', 'JavaScript'],
+      results: [
+        '100% de reseñas respondidas en menos de 60 minutos',
+        'Respuestas personalizadas y multidioma sin intervención humana',
+        'Mejora significativa en la reputación online y SEO local',
+        'Consistencia de marca asegurada mediante context-learning'
+      ],
+      githubUrl: 'https://github.com/IkerMunozz',
+      images: [flujoResenas]
     },
     {
       id: 'zalando',
